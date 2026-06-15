@@ -28,7 +28,7 @@ const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
         <div className="nav-logo">
           <Link href="/">
             <img
-            //   src="/img/logo.png" 
+              src="/img/logo.png" 
               alt=" Logo" 
             />
           </Link>
