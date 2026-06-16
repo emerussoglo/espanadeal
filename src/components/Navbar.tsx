@@ -43,7 +43,7 @@ const handleSearchSubmit = (e: React.FormEvent) => {
         <div className="nav-logo">
           <Link href="/">
             <img
-              // src="/img/logo.png" 
+              src="/img/logo.png" 
               alt=" Logo" 
             />
           </Link>
@@ -80,9 +80,9 @@ const handleSearchSubmit = (e: React.FormEvent) => {
 
         {/* Actions Icones */}
         <div className="nav-actions">
-          <Link href="/favoris" className="action-icon fav-desktop" aria-label="Favoris">
-            <i className="far fa-heart"></i>
-          </Link>
+          <Link href="/contact" className="action-icon fav-desktop" aria-label="Contact">
+  <i className="far fa-envelope"></i>
+</Link>
           {/* Dans la section .nav-actions desktop */}
 <Link href="/panier" className="action-icon cart-icon-wrapper" aria-label="Panier">
   <i className="fas fa-shopping-bag"></i>
@@ -95,9 +95,9 @@ const handleSearchSubmit = (e: React.FormEvent) => {
       <div className="bottom-navbar">
         <div className="bottom-navbar-container">
           {/* Menu Magasiner par catégorie */}
-          <div className="category-menu-dropdown">
+          {/* <div className="category-menu-dropdown">
             <i className="fas fa-th-large"></i> Magasiner par catégorie <i className="fas fa-chevron-down arrow-down"></i>
-          </div>
+          </div> */}
 
           <ul className="nav-links">
   <li>
@@ -122,13 +122,34 @@ const handleSearchSubmit = (e: React.FormEvent) => {
   </li>
 </ul>
 
+
           {/* Numéro de téléphone à droite */}
 
           <div className="nav-phone">
             <a href="tel:+2290154627062">+229 01 54 62 70 62</a>
           </div>
         </div>
+
+        
       </div>
+
+
+        <div className="mobile-search-wrapper imagine-im" >
+  <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
+    <input 
+      type="text" 
+      placeholder="Rechercher des produits..." 
+      className="search-input"
+      value={searchTxt}
+      onChange={(e) => setSearchTxt(e.target.value)}
+    />
+    <button type="submit" className="search-button mobile-btn-blue" aria-label="Rechercher">
+      <i className="fas fa-search"></i>
+    </button>
+  </form>
+</div>
+
+      
 
       {/* --- MENU RESPONSIVE MOBILE SIDEBAR (Coulisse depuis la gauche) --- */}
       <div className={`mobile-sidebar-overlay ${isMenuOpen ? "active" : ""}`} onClick={() => setIsMenuOpen(false)}>

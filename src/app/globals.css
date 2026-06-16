@@ -861,13 +861,13 @@ body {
 
 /* --- SECTION HERO STYLE ASYMÉTRIQUE ET RESPONSIVE --- */
 .hero-section-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 20px;
-  height: 520px; /* Hauteur harmonieuse */
+  height: 480px; /* Hauteur harmonieuse */
 }
 
 /* BLOC SLIDER GAUCHE */
@@ -946,7 +946,7 @@ body {
 
 .btn-hero-action {
   display: inline-block;
-  background-color: #b32b39; /* Couleur grenat présente sur ton image */
+  background-color: var(--color-primary);; /* Couleur grenat présente sur ton image */
   color: #ffffff;
   text-decoration: none;
   font-size: 13px;
@@ -957,7 +957,7 @@ body {
 }
 
 .btn-hero-action:hover {
-  background-color: #91202c;
+  background-color: var(--color-primary);;
 }
 
 /* DOTS DU SLIDER */
@@ -1028,7 +1028,7 @@ body {
   margin-bottom: 6px;
 }
 
-.banner-tag.text-red { color: #ff453a; }
+.banner-tag.text-red { color: var(--color-primary); }
 .banner-tag.text-green { color: #30d158; }
 
 .right-banner-card h3 {
@@ -1046,7 +1046,7 @@ body {
 
 .btn-banner-small {
   display: inline-block;
-  background-color: #b32b39;
+  background-color: var(--color-primary);;
   color: #ffffff;
   text-decoration: none;
   font-size: 12px;
@@ -1056,7 +1056,7 @@ body {
 }
 
 .btn-banner-small:hover {
-  background-color: #91202c;
+  background-color: var(--color-primary);;
 }
 
 /* --- ADAPTATION RESPONSIVE (MOBILE & TABLETTE) --- */
@@ -1098,5 +1098,105 @@ body {
   }
   .right-banner-card {
     height: 180px;
+  }
+}
+
+
+/* --- SECTION AVANTAGES (DESKTOP) --- */
+.features-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f1f5;
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Style des ronds pour les icônes */
+.feature-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  font-size: 22px;
+}
+
+/* Couleurs spécifiques basées sur tes images */
+.icon-shipping { background-color: #fdf2f2; color: #a94442; }
+.icon-security { background-color: #f4fbf7; color: #198754; }
+.icon-support { background-color: #fbf6ff; color: #6f42c1; }
+.icon-guarantee { background-color: #f1f7fc; color: #0d6efd; }
+
+.feature-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+/* --- VERSION MOBILE RESPONSIVE (DÉFILEMENT HORIZONTAL) --- */
+@media (max-width: 768px) {
+  .features-section {
+    padding: 0 0 0 15px; /* Décalage pour laisser entrevoir la suite */
+    margin: 25px auto;
+    overflow: hidden;
+  }
+
+  .features-container {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px; /* Espace pour la barre de défilement */
+    gap: 15px;
+    scrollbar-width: thin; /* Pour Firefox */
+  }
+
+  /* Personnalisation de la barre de défilement (style image_eb9269.png) */
+  .features-container::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .features-container::-webkit-scrollbar-track {
+    background: #eef0f2;
+    border-radius: 10px;
+  }
+  
+  .features-container::-webkit-scrollbar-thumb {
+    background: #bcbcbc;
+    border-radius: 10px;
+  }
+
+  .feature-card {
+    flex: 0 0 260px; /* Taille fixe pour obliger le débordement et le scroll */
+    scroll-snap-align: start;
+    padding: 20px 15px;
   }
 }

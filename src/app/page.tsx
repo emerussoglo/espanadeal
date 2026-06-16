@@ -78,7 +78,7 @@ export function HomePageContent() {
               ? `Résultats de votre recherche (${filteredProducts.length})` 
               : "Découvrez nos articles du moment"}
           </h1>
-          <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p>
+          {/* <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p> */}
           
           {/* Bouton pour réinitialiser les filtres si besoin */}
           {(searchQuery || categoryQuery) && (
@@ -90,6 +90,47 @@ export function HomePageContent() {
             </button>
           )}
         </div>
+        <div className="features-section">
+  <div className="features-container">
+    
+    {/* Carte 1 : Livraison */}
+    <div className="feature-card">
+  <div className="feature-icon-wrapper icon-shipping"> {/* Conserve la classe pour la couleur rouge/rosée */}
+    <i className="fas fa-award"></i>
+  </div>
+  <h3>Qualité Garantie</h3>
+  <p>Des produits 100% authentiques et sélectionnés avec soin</p>
+</div>
+
+    {/* Carte 2 : Paiement */}
+    <div className="feature-card">
+      <div className="feature-icon-wrapper icon-security">
+        <i className="fas fa-shield-alt"></i>
+      </div>
+      <h3>Paiement Sécurisé</h3>
+      <p>Transactions 100% sécurisées et cryptées</p>
+    </div>
+
+    {/* Carte 3 : Support */}
+    <div className="feature-card">
+      <div className="feature-icon-wrapper icon-support">
+        <i className="fas fa-headset"></i>
+      </div>
+      <h3>Support 24/7</h3>
+      <p>Assistance disponible à tout moment</p>
+    </div>
+
+    {/* Carte 4 : Garantie */}
+    <div className="feature-card">
+  <div className="feature-icon-wrapper icon-guarantee">
+    <i className="fas fa-store"></i>
+  </div>
+  <h3>Retrait Rapide</h3>
+  <p>Récupérez vos articles directement et gagnez du temps</p>
+</div>
+
+  </div>
+</div>
 
         {filteredProducts.length > 0 ? (
           <div className="products-grid">

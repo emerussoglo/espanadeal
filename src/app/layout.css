@@ -343,6 +343,10 @@ body {
   border: 1px solid var(--color-gray-border);
 }
 
+.imagine-im {
+  display: none;
+}
+
 .mobile-btn-blue {
   background-color: var(--color-primary) !important;
   color: var(--color-white) !important;
@@ -425,7 +429,13 @@ body {
   .desktop-search, .bottom-navbar {
     display: none; /* Coupe la navigation double et la recherche desktop globale */
   }
-
+  .imagine-im {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ margin-top: 15px;
+}
   .burger-menu {
     display: block; /* Active le burger */
   }
