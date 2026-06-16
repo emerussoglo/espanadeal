@@ -112,7 +112,7 @@ export function HomePageContent() {
     </div>
 
     {/* Carte 3 : Support */}
-    <div className="feature-card">
+    <div className="feature-card"> 
       <div className="feature-icon-wrapper icon-support">
         <i className="fas fa-headset"></i>
       </div>
