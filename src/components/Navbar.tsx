@@ -194,27 +194,27 @@ const handleSearchSubmit = (e: React.FormEvent) => {
             
             <div className="sidebar-section-title">
               <span>Filtrer par catégorie</span>
-              <Link href="/categories" className="see-all-link">Tout voir</Link>
+              <Link href="/produits" className="see-all-link">Tout voir</Link>
             </div>
 
             <ul className="sidebar-categories-list">
   <li>
-    <Link href="/produits?cat=electronique">
+    <Link href="/?search=&cat=electronique">
       <i className="fas fa-laptop"></i> Appareils électroniques
     </Link>
   </li>
   <li>
-    <Link href="/produits?cat=beaute">
+    <Link href="/?search=&cat=beaute">
       <i className="fas fa-pump-soap"></i> Beauté et soin
     </Link>
   </li>
   <li>
-    <Link href="/produits?cat=maison">
+    <Link href="/?search=&cat=maison">
       <i className="fas fa-couch"></i> Maison
     </Link>
   </li>
   <li>
-    <Link href="/produits?cat=sport">
+    <Link href="/?search=&cat=sport">
       <i className="fas fa-basketball-ball"></i> Sport / Fitness
     </Link>
   </li>

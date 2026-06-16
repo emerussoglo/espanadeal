@@ -68,28 +68,11 @@ export function HomePageContent() {
   return (
     <main>
       {/* On n'affiche le Hero que si l'utilisateur n'est pas en train de filtrer */}
-      {!searchQuery && !categoryQuery && <Hero />}
-
-      <div className="home-page-container">
-        <div className="featured-hero">
-          <span className="featured-subtitle">Offres Exclusives Espanadeal</span>
-          <h1>
-            {searchQuery || categoryQuery 
-              ? `Résultats de votre recherche (${filteredProducts.length})` 
-              : "Découvrez nos articles du moment"}
-          </h1>
-          {/* <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p> */}
+      {!searchQuery && !categoryQuery && 
+      
+      <div>
+        <Hero />
           
-          {/* Bouton pour réinitialiser les filtres si besoin */}
-          {(searchQuery || categoryQuery) && (
-            <button 
-              onClick={() => router.push("/")}
-              style={{ marginTop: "15px", padding: "8px 16px", backgroundColor: "#1a1a1a", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "13px" }}
-            >
-              Voir tous les produits
-            </button>
-          )}
-        </div>
         <div className="features-section">
   <div className="features-container">
     
@@ -131,6 +114,30 @@ export function HomePageContent() {
 
   </div>
 </div>
+      </div>
+      }
+
+      <div className="home-page-container">
+        <div className="featured-hero">
+          <span className="featured-subtitle">Offres Exclusives Espanadeal</span>
+          <h1>
+            {searchQuery || categoryQuery 
+              ? `Résultats de votre recherche (${filteredProducts.length})` 
+              : "Découvrez nos articles du moment"}
+          </h1>
+          {/* <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p> */}
+          
+          {/* Bouton pour réinitialiser les filtres si besoin */}
+          {(searchQuery || categoryQuery) && (
+            <button 
+              onClick={() => router.push("/")}
+              style={{ marginTop: "15px", padding: "8px 16px", backgroundColor: "#1a1a1a", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "13px" }}
+            >
+              Voir tous les produits
+            </button>
+          )}
+        </div>
+      
 
         {filteredProducts.length > 0 ? (
           <div className="products-grid">
