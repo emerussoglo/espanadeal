@@ -1,7 +1,9 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import Hero from "@/components/Hero";
+import { Suspense } from "react";
 
 const PRODUCTS_DATA = [
   { id: 1, name: "iPhone", price: 999, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60" },
@@ -25,9 +27,38 @@ const PRODUCTS_DATA = [
   { id: 20, name: "Équipements de gym à domicile", price: 450, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?w=500&auto=format&fit=crop&q=60" }
 ];
 
-export default function HomePage() {
+export function HomePageContent() {
   const { addToCart } = useCart();
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // 1. Récupération des filtres depuis l'URL
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+  const categoryQuery = searchParams.get("cat") || "";
+
+  // 2. Traduction des slugs d'URL vers les vrais noms de catégories du tableau
+ // 2. Traduction des slugs d'URL vers les vrais noms exacts de ton tableau PRODUCTS_DATA
+  const categoryMapping: { [key: string]: string } = {
+    electronique: "Appareils électroniques",
+    beaute: "Beauté et soin",
+    maison: "Maison",
+    cuisine: "Cuisine",
+    sport: "Sport/ Fitness" // <-- Correspond exactement à l'écriture "Sport/ Fitness" de tes produits !
+  };
+  const targetCategory = categoryMapping[categoryQuery] || "";
+
+  // 3. Filtrage dynamique super-robuste
+  const filteredProducts = PRODUCTS_DATA.filter((product) => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery);
+    
+    // On nettoie les chaînes en enlevant les espaces et en passant en minuscules
+    const cleanProductCat = product.category.replace(/\s+/g, '').toLowerCase();
+    const cleanTargetCat = targetCategory.replace(/\s+/g, '').toLowerCase();
+    
+    const matchesCategory = targetCategory ? cleanProductCat === cleanTargetCat : true;
+    
+    return matchesSearch && matchesCategory;
+  });
 
   const handleBuyNow = (product: typeof PRODUCTS_DATA[0]) => {
     addToCart(product);
@@ -35,54 +66,86 @@ export default function HomePage() {
   };
 
   return (
-    <div className="home-page-container">
-      <div className="featured-hero">
-  <span className="featured-subtitle">Offres Exclusives Espanadeal</span>
-  <h1>Découvrez nos articles du moment</h1>
-  <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p>
-</div>
+    <main>
+      {/* On n'affiche le Hero que si l'utilisateur n'est pas en train de filtrer */}
+      {!searchQuery && !categoryQuery && <Hero />}
 
-      <div className="products-grid">
-        {PRODUCTS_DATA.map((product) => (
-          <div key={product.id} className="product-card">
-            
-            {/* Conteneur de l'image */}
-            <div className="product-image-wrapper">
-              <img 
-                src={product.image} 
-                alt={product.name}
-                className="product-img"
-                loading="lazy"
-              />
-            </div>
+      <div className="home-page-container">
+        <div className="featured-hero">
+          <span className="featured-subtitle">Offres Exclusives Espanadeal</span>
+          <h1>
+            {searchQuery || categoryQuery 
+              ? `Résultats de votre recherche (${filteredProducts.length})` 
+              : "Découvrez nos articles du moment"}
+          </h1>
+          <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p>
+          
+          {/* Bouton pour réinitialiser les filtres si besoin */}
+          {(searchQuery || categoryQuery) && (
+            <button 
+              onClick={() => router.push("/")}
+              style={{ marginTop: "15px", padding: "8px 16px", backgroundColor: "#1a1a1a", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "13px" }}
+            >
+              Voir tous les produits
+            </button>
+          )}
+        </div>
 
-            {/* Informations produit */}
-            <div className="product-info">
-              <span className="product-cat">{product.category}</span>
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-price">{product.price.toLocaleString()} €</p>
-              
-              {/* Boutons d'action */}
-              <div className="product-card-actions">
-                <button 
-                  onClick={() => addToCart(product)} 
-                  className="btn-add-cart"
-                  title="Ajouter au panier"
-                >
-                  <i className="fas fa-shopping-basket"></i> +
-                </button>
-                <button 
-                  onClick={() => handleBuyNow(product)} 
-                  className="btn-buy-now"
-                >
-                  Commander
-                </button>
+        {filteredProducts.length > 0 ? (
+          <div className="products-grid">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="product-card">
+                <div className="product-image-wrapper">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="product-img"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="product-info">
+                  <span className="product-cat">{product.category}</span>
+                  <h3 className="product-name">{product.name}</h3>
+                  <p className="product-price">{product.price.toLocaleString()} €</p>
+                  
+                  <div className="product-card-actions">
+                    <button 
+                      onClick={() => addToCart(product)} 
+                      className="btn-add-cart"
+                      title="Ajouter au panier"
+                      type="button"
+                    >
+                      <i className="fas fa-shopping-basket"></i> +
+                    </button>
+                    <button 
+                      onClick={() => handleBuyNow(product)} 
+                      className="btn-buy-now"
+                      type="button"
+                    >
+                      Commander
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-
+            ))}
           </div>
-        ))}
+        ) : (
+          <div style={{ textAlign: "center", padding: "40px 20px", color: "#636366" }}>
+            <i className="fas fa-search" style={{ fontSize: "30px", marginBottom: "15px", display: "block" }}></i>
+            Aucun produit ne correspond à vos critères.
+          </div>
+        )}
       </div>
-    </div>
+    </main>
+  );
+}
+
+// Next.js demande d'envelopper useSearchParams dans un composant Suspense lors du build
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <HomePageContent />
+    </Suspense>
   );
 }

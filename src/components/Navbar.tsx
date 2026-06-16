@@ -4,12 +4,27 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation"; // <-- AJOUT DE useRouter
+
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTxt, setSearchTxt] = useState("");          // <-- ÉTAT POUR LE TEXTE DE RECHERCHE
+  const [searchCat, setSearchCat] = useState("");          // <-- ÉTAT POUR LA CATÉGORIE SÉLECTIONNÉE
 const { cartCount } = useCart();
 const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
+const router = useRouter(); //
+
+const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    let url = `/?search=${encodeURIComponent(searchTxt.trim())}`;
+    if (searchCat) {
+      url += `&cat=${searchCat}`;
+    }
+    setIsMenuOpen(false); // Ferme la sidebar mobile au cas où
+    router.push(url);     // Envoie l'utilisateur sur l'URL filtrée
+  };
 
   return (
     <header className="header-container">
@@ -28,7 +43,7 @@ const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
         <div className="nav-logo">
           <Link href="/">
             <img
-              src="/img/logo.png" 
+              // src="/img/logo.png" 
               alt=" Logo" 
             />
           </Link>
@@ -36,24 +51,31 @@ const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
 
         {/* Barre de Recherche (Desktop uniquement à ce niveau) */}
         <div className="nav-search-container desktop-search">
-          <form className="search-form">
-            <input 
-              type="text" 
-              placeholder="Rechercher des produits..." 
-              className="search-input"
-            />
-            <div className="search-select-wrapper">
-              <select className="search-category">
-                <option value="">Toutes les catégories</option>
-                <option value="electronique">Appareils électroniques</option>
-                <option value="cuisine">Cuisine</option>
-                <option value="meubles">Maison</option>
-              </select>
-            </div>
-            <button type="submit" className="search-button">
-              <i className="fas fa-search"></i>
-            </button>
-          </form>
+          <form onSubmit={handleSearchSubmit} className="search-form">
+  <input 
+    type="text" 
+    placeholder="Rechercher des produits..." 
+    className="search-input"
+    value={searchTxt}
+    onChange={(e) => setSearchTxt(e.target.value)}
+  />
+  <div className="search-select-wrapper">
+    <select 
+      className="search-category"
+      value={searchCat}
+      onChange={(e) => setSearchCat(e.target.value)}
+    >
+      <option value="">Toutes les catégories</option>
+      <option value="electronique">Appareils électroniques</option>
+      <option value="beaute">Beauté et soin</option>
+      <option value="maison">Maison</option>
+      <option value="sport">Sport / Fitness</option>
+    </select>
+  </div>
+  <button type="submit" className="search-button" aria-label="Rechercher">
+    <i className="fas fa-search"></i>
+  </button>
+</form>
         </div>
 
         {/* Actions Icones */}
@@ -124,18 +146,19 @@ const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
             
             {/* Barre de recherche intégrée au menu sur mobile */}
             <div className="mobile-search-wrapper">
-              <form className="search-form mobile-search-form">
-                <input 
-                  type="text" 
-                  placeholder="Rechercher des produits..." 
-                  className="search-input"
-                />
-                <button type="submit" className="search-button mobile-btn-blue">
-                  <i className="fas fa-search"></i>
-                </button>
-              </form>
-            </div>
-
+  <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
+    <input 
+      type="text" 
+      placeholder="Rechercher des produits..." 
+      className="search-input"
+      value={searchTxt}
+      onChange={(e) => setSearchTxt(e.target.value)}
+    />
+    <button type="submit" className="search-button mobile-btn-blue" aria-label="Rechercher">
+      <i className="fas fa-search"></i>
+    </button>
+  </form>
+</div>
 
 
 {/* Liens de pages classiques */}
@@ -149,18 +172,32 @@ const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
 
             
             <div className="sidebar-section-title">
-              <span>Magasiner par catégorie</span>
+              <span>Filtrer par catégorie</span>
               <Link href="/categories" className="see-all-link">Tout voir</Link>
             </div>
 
-            {/* Liste des catégories style mobile */}
             <ul className="sidebar-categories-list">
-              <li><Link href="/produits?cat=electronique"><i className="fas fa-laptop"></i> Appareils électroniques</Link></li>
-              <li><Link href="/produits?cat=beaute"><i className="fas fa-pump-soap"></i> Beauté et soin</Link></li>
-              <li><Link href="/produits?cat=maison"><i className="fas fa-couch"></i> Maison</Link></li>
-              <li><Link href="/produits?cat=sport"><i className="fas fa-basketball-ball"></i> Sport/ Fitness</Link></li>
-              <li><Link href="/produits?cat=electromenagers" className="bold-item">Électroménagers</Link></li>
-            </ul>
+  <li>
+    <Link href="/produits?cat=electronique">
+      <i className="fas fa-laptop"></i> Appareils électroniques
+    </Link>
+  </li>
+  <li>
+    <Link href="/produits?cat=beaute">
+      <i className="fas fa-pump-soap"></i> Beauté et soin
+    </Link>
+  </li>
+  <li>
+    <Link href="/produits?cat=maison">
+      <i className="fas fa-couch"></i> Maison
+    </Link>
+  </li>
+  <li>
+    <Link href="/produits?cat=sport">
+      <i className="fas fa-basketball-ball"></i> Sport / Fitness
+    </Link>
+  </li>
+</ul>
 
             <div className="sidebar-divider"></div>
 
