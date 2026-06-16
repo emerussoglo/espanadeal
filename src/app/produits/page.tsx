@@ -58,7 +58,7 @@ const PRODUCTS_DATA = [
   { id: 33, name: "Parfum Bleu de Chanel", price: 125, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60" },
   { id: 34, name: "Huile Capillaire Fortifiante", price: 30, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60" },
   { id: 35, name: "Pack Soins Cheveux Bouclés", price: 45, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60" },
-
+  
   // ==========================================
   // MAISON & CUISINE
   // ==========================================
