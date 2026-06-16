@@ -13,14 +13,6 @@ export default function Footer() {
           <p>Copyright {currentYear} — <strong>ESPANA DEAL</strong>. Droits réservés !</p>
         </div> 
 
-        {/* Liens simples à gauche */}
-        <div className="footer-links">
-          <Link href="/politique">Confidentialité</Link>
-          <Link href="/cgvu">CGVU</Link>
-          <Link href="/remboursement">Remboursement</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-
        
 
       </div>

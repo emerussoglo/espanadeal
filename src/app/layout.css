@@ -434,7 +434,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
- margin-top: 15px;
+ margin-top: 10px;
+ 
 }
   .burger-menu {
     display: block; /* Active le burger */
@@ -445,7 +446,7 @@ body {
   }
 
   .main-navbar {
-    padding: 10px 15px;
+    padding: 8px 10px;
   }
 }
 
