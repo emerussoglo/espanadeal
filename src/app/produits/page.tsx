@@ -6,71 +6,69 @@ import { useRouter } from "next/navigation";
 
 const PRODUCTS_DATA = [
   // ==========================================
-  // APPAREILS ÉLECTRONIQUES (iPhones & High-Tech)
+  // DISPOSITIVOS ELECTRÓNICOS (iPhones & High-Tech)
   // ==========================================
-  { id: 1, name: "iPhone 11", price: 76.95, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/www.frandroid.com/wp-content/uploads/2019/08/apple-iphone-11-frandroid-2019.png?webp=1&resize=580,580&key=fcb2a39b" },
-  { id: 2, name: "iPhone 12", price: 155, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2020/10/iphone-12-frandroid-2020-768x768.png?webp=1&resize=580,580&key=1b5d60de" },
-  { id: 3, name: "iPhone 12 Pro", price: 479, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2020/10/iphone-12-max-frandroid-2020-768x768.png?webp=1&resize=580,580&key=85d800ac" },
-  { id: 4, name: "iPhone 13", price: 499, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-frandroid-2021-768x768.png?webp=1&resize=580,580&key=a6b052d7" },
-  { id: 5, name: "iPhone 13 Pro Max", price: 349, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-pro-max-frandroid-2021-768x768.png?webp=1&resize=580,580&key=33af98cc" },
-  // { id: 6, name: "iPhone 14", price: 599, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?w=500&auto=format&fit=crop&q=60" },
-  { id: 7, name: "iPhone 14 Pro", price: 699, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2022/09/iphone-14-pro-max-officiel-frandroid-2022-768x768.png?webp=1&key=1e26da76" },
-  { id: 8, name: "iPhone 15", price: 749, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-768x768.png?webp=1&key=62513184" },
-  { id: 9, name: "iPhone 15 Pro Max", price: 620, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-pro-max-768x768.png?webp=1&key=6d7ed62f" },
-  { id: 10, name: "Apple iPhone 16 (128 Go) - Cyan + Coque Transparente avec MagSafe", price: 806, category: "Appareils électroniques", image: "/img/iPhone16.jpg" },
-  { id: 11, name: "iPhone 16 Pro Max", price: 817.40, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2024/08/apple-iphone-16-pro-max-frandroid-2024-hd-768x768.png?webp=1&key=ce4d50e3" },
-  { id: 12, name: "iPhone 17 Pro", price: 1099, category: "Appareils électroniques", image: "https://www.apple.com/v/iphone-17-pro/d/images/overview/contrast/iphone_17_pro__dwccrdina7qu_large.jpg" },
-  { id: 39, name: "iPhone 17 Pro Max", price: 1199, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/09/apple-iphone-17-pro-max-frandroid-2025-768x768.png?webp=1&key=edb35fd1" },
+  { id: 1, name: "iPhone 11", price: 76.95, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/www.frandroid.com/wp-content/uploads/2019/08/apple-iphone-11-frandroid-2019.png?webp=1&resize=580,580&key=fcb2a39b" },
+  { id: 2, name: "iPhone 12", price: 155, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2020/10/iphone-12-frandroid-2020-768x768.png?webp=1&resize=580,580&key=1b5d60de" },
+  { id: 3, name: "iPhone 12 Pro", price: 479, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2020/10/iphone-12-max-frandroid-2020-768x768.png?webp=1&resize=580,580&key=85d800ac" },
+  { id: 4, name: "iPhone 13", price: 499, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-frandroid-2021-768x768.png?webp=1&resize=580,580&key=a6b052d7" },
+  { id: 5, name: "iPhone 13 Pro Max", price: 349, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-pro-max-frandroid-2021-768x768.png?webp=1&key=33af98cc" },
+  { id: 7, name: "iPhone 14 Pro", price: 699, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2022/09/iphone-14-pro-max-officiel-frandroid-2022-768x768.png?webp=1&key=1e26da76" },
+  { id: 8, name: "iPhone 15", price: 749, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-768x768.png?webp=1&key=62513184" },
+  { id: 9, name: "iPhone 15 Pro Max", price: 620, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-pro-max-768x768.png?webp=1&key=6d7ed62f" },
+  { id: 10, name: "Apple iPhone 16 (128 GB) - Cian + Funda Transparente con MagSafe", price: 806, category: "Dispositivos electrónicos", image: "/img/iPhone16.jpg" },
+  { id: 11, name: "iPhone 16 Pro Max", price: 817.40, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2024/08/apple-iphone-16-pro-max-frandroid-2024-hd-768x768.png?webp=1&key=ce4d50e3" },
+  { id: 12, name: "iPhone 17 Pro", price: 1099, category: "Dispositivos electrónicos", image: "https://www.apple.com/v/iphone-17-pro/d/images/overview/contrast/iphone_17_pro__dwccrdina7qu_large.jpg" },
+  { id: 39, name: "iPhone 17 Pro Max", price: 1199, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/09/apple-iphone-17-pro-max-frandroid-2025-768x768.png?webp=1&key=edb35fd1" },
   
-  // Audio & Accessoires
-  { id: 13, name: "Apple AirPods Pro 3 Écouteurs sans Fil, réduction Active du Bruit", price: 150, category: "Appareils électroniques", image: "/img/AppleAirPodsPro3.jpg" },
-  { id: 14, name: "Sony WH-1000XM5SA Édition Spéciale avec étui Souple, réduction de Bruit Active, Bluetooth, qualité d'appel Claire", price: 209, category: "Appareils électroniques", image: "/img/SonyWH-1000XM5SA.jpg" },
-  { id: 15, name: "Apple Watch Series 9 (GPS + Cellulaire, 45 MM) Boîtier Aluminium Starlight avec Bracelet Sport Starlight, M/L (Reconditionné)", price: 399, category: "Appareils électroniques", image: "/img/AppleWatchSeries9.jpg" },
-  { id: 16, name: "CUKTECH Chargeur USB C 100W, 3 Ports GaN III Tech et PPS PD3.0 Chargeur Rapide, Chargeur 100W USB C Rapide", price: 34.99, category: "Appareils électroniques", image: "/img/CUKTECHChargeurUSBC.jpg" },
-  
-  // Gaming
-  { id: 17, name: "Sony, Console PlayStation 5 Édition Standard 1 To avec lecteur Blu-ray 4K, SSD Ultra-Rapide, Audio 3D, Ray Tracing, 1 Manette DualSense avec Retour Haptique", price: 509.99, category: "Appareils électroniques", image: "/img/SonyConsolePlayStation5.jpg" },
-  { id: 18, name: "Playstation Sony, Lecteur à Distance Portal 5, Écran LCD Full HD de 8, Jeux en Streaming via Wi-Fi, Retour Haptique & Gâchettes Adaptatives, Couleur  Blanche", price: 220, category: "Appareils électroniques", image: "/img/PlaystationSonyLecteur.jpg" },
-  { id: 19, name: "Nintendo Switch (OLED) Console de Jeux Portables 17,8 cm  64 Go Écran Tactile WiFi Blanc", price: 209, category: "Appareils électroniques", image: "/img/NintendoSwitch.jpg" },
+  // Audio, Accesorios & Relojes Inteligentes
+  { id: 13, name: "Apple AirPods Pro 3 Auriculares Inalámbricos, Cancelación Activa de Ruido", price: 150, category: "Dispositivos electrónicos", image: "/img/AppleAirPodsPro3.jpg" },
+  { id: 14, name: "Sony WH-1000XM5SA Edición Especial con estuche blando, Cancelación Activa de Ruido, Bluetooth, calidad de llamada clara", price: 209, category: "Dispositivos electrónicos", image: "/img/SonyWH-1000XM5SA.jpg" },
+  { id: 15, name: "Apple Watch Series 9 (GPS + Cellular, 45 MM) Caja de Aluminio Blanco Estrella con Correa Deportiva Blanco Estrella, M/L (Reacondicionado)", price: 399, category: "Dispositivos electrónicos", image: "/img/AppleWatchSeries9.jpg" },
+  { id: 16, name: "CUKTECH Cargador USB C 100W, 3 Puertos GaN III Tech y PPS PD3.0 Cargador Rápido, Cargador 100W USB C Rápido", price: 34.99, category: "Dispositivos electrónicos", image: "/img/CUKTECHChargeurUSBC.jpg" },
+  { id: 40, name: "SHOKZ OpenFit Pro Open Ear Auriculares Inalámbricos Negro", price: 289, category: "Dispositivos electrónicos", image: "/img/SHOKZOpenFitProOpen.jpg" },
+  { id: 41, name: "Realme Buds Clip", price: 74.99, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/12/realme-buds-clip-frandroid-2025-300x300.png?webp=1&key=4be0b994" },
+  { id: 44, name: "JBL Wave Beam 2, Auriculares Inalámbricos Bluetooth, Cancelación de Ruido, 40 horas de autonomía", price: 49.99, category: "Dispositivos electrónicos", image: "/img/JBLWaveBeam2.jpg" },
+  { id: 45, name: "Auriculares inalámbricos para Apple iPhone - Auriculares Bluetooth 5.4 con ganchos para el oído, Estéreo", price: 27, category: "Dispositivos electrónicos", image: "/img/ecouteurssansfilpourApple.jpg" },
+  { id: 46, name: "Soundcore Space One Auriculares de Diadema Bluetooth Inalámbricos con Cancelación Activa de Ruido Adaptativa de Anker, Reducción de voces humanas 2 veces más eficaz", price: 19.99, category: "Dispositivos electrónicos", image: "/img/SoundcoreSpaceOneCasque.jpg" },
+  { id: 47, name: "COROS Pace 4 Reloj Deportivo Ultraligero con Sensor de Frecuencia Cardíaca", price: 349, category: "Dispositivos electrónicos", image: "/img/COROSPace4Montre.jpg" },
+
+  // Videojuegos
+  { id: 17, name: "Sony, Consola PlayStation 5 Edición Estándar 1 TB con lector Blu-ray 4K, SSD Ultrarrápido, Audio 3D, Ray Tracing, 1 Mando DualSense con Retroalimentación Háptica", price: 509.99, category: "Dispositivos electrónicos", image: "/img/SonyConsolePlayStation5.jpg" },
+  { id: 18, name: "Playstation Sony, Reproductor a Distancia Portal 5, Pantalla LCD Full HD de 8\", Juegos en Streaming vía Wi-Fi, Retroalimentación Háptica y Gatillos Adaptativos, Color Blanco", price: 220, category: "Dispositivos electrónicos", image: "/img/PlaystationSonyLecteur.jpg" },
+  { id: 19, name: "Nintendo Switch (OLED) Consola de Juegos Portátil de 17,8 cm, 64 GB, Pantalla Táctil, WiFi, Blanco", price: 209, category: "Dispositivos electrónicos", image: "/img/NintendoSwitch.jpg" },
 
   // ==========================================
-  // SPORT / FITNESS (Sneakers & Gym)
+  // DEPORTE / FITNESS (Zapatillas & Gimnasio)
   // ==========================================
-  { id: 20, name: "PUMA Tazon 6 Fracture FM, Men's Sneaker", price: 34.99, category: "Sport / Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
-  { id: 21, name: "Puma Smash V2 L BasketsMixte", price: 24.99, category: "Sport / Fitness", image: "/img/PumaSmashV2LBasketsMixte.jpg" },
-  { id: 22, name: "Adidas Unisex Chaussure VS Pace 2.0", price: 32, category: "Sport / Fitness", image: "/img/adidasUnisexChaussure.jpg" },
-  { id: 23, name: "Skechers Uno Stand on Air Basket", price: 48, category: "Sport / Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
-  { id: 24, name: "Skechers Uno-Night Shades, Baskets", price: 52.99, category: "Sport / Fitness", image: "/img/SkechersUno-NightShades.jpg" },
-  { id: 27, name: "Kit Haltères Réglables (20kg)", price: 42, category: "Sport / Fitness", image: "/img/Halteres-reglables.jpg" },
- 
-  // BEAUTÉ ET SOIN (Skincare & Parfums)
+  { id: 20, name: "PUMA Tazon 6 Fracture FM, Zapatillas para Hombre", price: 34.99, category: "Deporte / Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
+  { id: 21, name: "Puma Smash V2 L Zapatillas Unisex", price: 24.99, category: "Deporte / Fitness", image: "/img/PumaSmashV2LBasketsMixte.jpg" },
+  { id: 22, name: "Adidas Unisex Zapatillas VS Pace 2.0", price: 32, category: "Deporte / Fitness", image: "/img/adidasUnisexChaussure.jpg" },
+  { id: 23, name: "Skechers Uno Stand on Air Zapatillas", price: 48, category: "Deporte / Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
+  { id: 24, name: "Skechers Uno-Night Shades, Zapatillas", price: 52.99, category: "Deporte / Fitness", image: "/img/SkechersUno-NightShades.jpg" },
+  { id: 27, name: "Kit de Mancuernas Ajustables (20kg)", price: 42, category: "Deporte / Fitness", image: "/img/Halteres-reglables.jpg" },
+  { id: 42, name: "URLIFE Bicicleta Eléctrica para Adultos, Neumáticos Anchos de 16\"", price: 1299, category: "Deporte / Fitness", image: "/img/URLIFEVeloelectrique.jpg" },
+  { id: 43, name: "ZIPRO Bicicleta Estática para Adulto con Resistencia Magnética de 8 Niveles, Pantalla LCD, Soporte para Teléfono y Sillín Ajustable", price: 109, category: "Deporte / Fitness", image: "/img/ZIPROVelo.jpg" },
+
   // ==========================================
-  { id: 30, name: "MIXA - Sérum Booster d'Hydratation Intense 24H - Repulpe & Illumine", price: 6.99, category: "Beauté et soin", image: "/img/MIXASérumBooste.jpg" },
-  { id: 31, name: "CeraVe Baume Hydratant Visage & Corps, Hydratation 48H, Technologie MVE + 3 Céramides + Acide Hyaluronique", price: 16.25, category: "Beauté et soin", image: "/img/CeraVeBaume.jpg" },
-  { id: 32, name: "EANNE ARTHES - Parfum Homme Sexy Boy Intense - Eau de Parfum - Flacon Vaporisateur 100 ml", price: 5.12, category: "Beauté et soin", image: "/img/JEANNEARTHES.jpg" },
- 
+  // BELLEZA Y CUIDADO PERSONAL (Skincare & Perfumes)
   // ==========================================
-  // MAISON & CUISINE
+  { id: 30, name: "MIXA - Sérum Booster de Hidratación Intensa 24H - Rellena e Ilumina", price: 6.99, category: "Belleza y cuidado personal", image: "/img/MIXASérumBooste.jpg" },
+  { id: 31, name: "CeraVe Crema Hidratante para Rostro y Cuerpo, Hidratación 48H, Tecnología MVE + 3 Ceramidas + Ácido Hialurónico", price: 16.25, category: "Belleza y cuidado personal", image: "/img/CeraVeBaume.jpg" },
+  { id: 32, name: "JEANNE ARTHES - Perfume para Hombre Sexy Boy Intense - Eau de Parfum - Frasco Vaporizador de 100 ml", price: 5.12, category: "Belleza y cuidado personal", image: "/img/JEANNEARTHES.jpg" },
+
   // ==========================================
-  { id: 36, name: "Ninja Foodi FlexDrawer Air Fryer, Dual Zone Avec Séparateur Amovible", price: 156, category: "Cuisine", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
-  { id: 37, name: "ECOVACS T50 Omni GEN2 Aspirateur Robot avec Station, Puissance 21000Pa, Brosse latérale et serpillière", price: 270, category: "Maison", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" },
-   { id: 40, name: "SHOKZ OpenFit Pro Open Ear Écouteurs sans fil Noir", price: 289, category: "Maison", image: "/img/SHOKZOpenFitProOpen.jpg" },
-  { id: 41, name: "Realme Buds Clip", price: 74.99, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/12/realme-buds-clip-frandroid-2025-300x300.png?webp=1&key=4be0b994" },
-  { id: 42, name: "URLIFE Vélo Électrique pour Adultes, Pneus Larges 16", price: 1299, category: "Appareils électroniques", image: "/img/URLIFEVeloelectrique.jpg" },
-  { id: 43, name: "ZIPRO Vélo d'Appartement Adulte avec Résistance Magnétique à 8 Niveaux, Écran LCD, Support pour Téléphone et Selle Réglable", price: 109, category: "Appareils électroniques", image: "/img/ZIPROVelo.jpg" },
-  { id: 44, name: "JBL Wave Beam 2, Écouteurs sans Fil Bluetooth, réduction de Bruit, 40 Heures d'autonomie", price: 49.99, category: "Maison", image: "/img/JBLWaveBeam2.jpg" },
-  { id: 45, name: "Écouteurs sans fil pour Apple iPhone - Écouteurs Bluetooth 5.4 avec crochets d'oreille, stéréo", price: 27, category: "Maison", image: "/img/ecouteurssansfilpourApple.jpg" },
-  { id: 46, name: "Soundcore Space One Casque Bluetooth sans Fil avec Réduction de Bruit Active Adaptative by Anker, Réduction des Voix Humaine 2X Plus Efficace", price: 19.99, category: "Maison", image: "/img/SoundcoreSpaceOneCasque.jpg" },
-  { id: 41, name: "COROS Pace 4 Montre de Sport Ultralégère Capteur de Fréquence Cardiaque", price: 349, category: "Maison", image: "/img/COROSPace4Montre.jpg" },
-  
+  // HOGAR & COCINA
+  // ==========================================
+  { id: 36, name: "Ninja Foodi FlexDrawer Freidora de Aire, Dual Zone Con Separador Extraíble", price: 156, category: "Cocina", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
+  { id: 37, name: "ECOVACS T50 Omni GEN2 Robot Aspirador con Estación, Potencia de 21000 Pa, Cepillo lateral y mopa", price: 270, category: "Hogar", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" }
 ];
-
 export default function ProductsPage() {
   const { addToCart } = useCart();
   const router = useRouter();
 
-  // États pour le tri et le filtrage
-  const [categoryFilter, setCategoryFilter] = useState("Tous");
+  // Estados para ordenar y filtrar
+  const [categoryFilter, setCategoryFilter] = useState("Todos");
   const [sortBy, setSortBy] = useState("default");
 
   const handleBuyNow = (product: typeof PRODUCTS_DATA[0]) => {
@@ -78,19 +76,19 @@ export default function ProductsPage() {
     router.push("/panier");
   };
 
-  // Liste des catégories uniques dynamiques
-  const categories = ["Tous", "Appareils électroniques", "Sport / Fitness", "Beauté et soin", "Cuisine", "Maison"];
+  // Lista de categorías únicas dinámicas en español
+  const categories = ["Todos", "Dispositivos electrónicos", "Deporte / Fitness", "Belleza y cuidado personal", "Cocina", "Hogar"];
 
-  // Filtrer et trier la liste des produits de manière performante
+  // Filtrar y ordenar la lista de productos de manera eficiente
   const filteredAndSortedProducts = useMemo(() => {
     let result = [...PRODUCTS_DATA];
 
-    // 1. Filtrage par catégorie
-    if (categoryFilter !== "Tous") {
+    // 1. Filtrado por categoría
+    if (categoryFilter !== "Todos") {
       result = result.filter((p) => p.category === categoryFilter);
     }
 
-    // 2. Tri des éléments
+    // 2. Ordenación de los elementos
     if (sortBy === "price-asc") {
       result.sort((a, b) => a.price - b.price);
     } else if (sortBy === "price-desc") {
@@ -104,12 +102,12 @@ export default function ProductsPage() {
 
   return (
     <div className="home-page-container">
-      <h1 className="section-title">Tous nos produits</h1>
+      <h1 className="section-title">Todos nuestros productos</h1>
 
-      {/* Barre de contrôle épurée : Filtres et Tris */}
+      {/* Barra de control: Filtros y Ordenación */}
       <div className="catalog-controls">
         <div className="control-group">
-          <label htmlFor="category-select">Catégorie :</label>
+          <label htmlFor="category-select">Categoría:</label>
           <select 
             id="category-select"
             value={categoryFilter} 
@@ -123,22 +121,22 @@ export default function ProductsPage() {
         </div>
 
         <div className="control-group">
-          <label htmlFor="sort-select">Trier par :</label>
+          <label htmlFor="sort-select">Ordenar por:</label>
           <select 
             id="sort-select"
             value={sortBy} 
             onChange={(e) => setSortBy(e.target.value)}
             className="filter-select"
           >
-            <option value="default">Pertinence</option>
-            <option value="price-asc">Prix : du - cher au + cher</option>
-            <option value="price-desc">Prix : du + cher au - cher</option>
-            <option value="alpha">Ordre alphabétique</option>
+            <option value="default">Relevancia</option>
+            <option value="price-asc">Precio: de menor a mayor</option>
+            <option value="price-desc">Precio: de mayor a menor</option>
+            <option value="alpha">Orden alfabético</option>
           </select>
         </div>
       </div>
 
-      {/* Grille des produits - Réutilisation parfaite des styles existants */}
+      {/* Grilla de productos */}
       <div className="products-grid">
         {filteredAndSortedProducts.map((product) => (
           <div key={product.id} className="product-card">
@@ -161,7 +159,7 @@ export default function ProductsPage() {
                 <button 
                   onClick={() => addToCart(product)} 
                   className="btn-add-cart"
-                  title="Ajouter au panier"
+                  title="Añadir al carrito"
                   type="button"
                 >
                   <i className="fas fa-shopping-basket"></i> +
@@ -171,7 +169,7 @@ export default function ProductsPage() {
                   className="btn-buy-now"
                   type="button"
                 >
-                  Commander
+                  Tramitar pedido
                 </button>
               </div>
             </div>
@@ -180,11 +178,11 @@ export default function ProductsPage() {
         ))}
       </div>
 
-      {/* Message si aucun produit ne correspond au filtre appliqué */}
+      {/* Mensaje si ningún producto coincide con el filtro aplicado */}
       {filteredAndSortedProducts.length === 0 && (
         <div className="no-products-found">
           <i className="fas fa-search"></i>
-          <p>Aucun article disponible pour cette catégorie actuellement.</p>
+          <p>No hay artículos disponibles en esta categoría actualmente.</p>
         </div>
       )}
     </div>

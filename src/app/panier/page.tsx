@@ -6,18 +6,18 @@ import Link from "next/link";
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart } = useCart();
 
-  // Calcul du prix total global
+  // Cálculo del precio total global
   const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  // Si le panier est vide, on affiche un message propre avec un bouton de retour
+  // Si el carrito está vacío, se muestra un mensaje limpio con un botón de regreso
   if (cart.length === 0) {
     return (
       <div className="cart-empty-container">
         <i className="fas fa-shopping-bag empty-icon"></i>
-        <h2>Votre panier est vide</h2>
-        <p>Il semblerait que vous n'avez pas encore ajouté de produits.</p>
+        <h2>Su carrito está vacío</h2>
+        <p>Parece que aún no ha añadido ningún producto.</p>
         <Link href="/" className="btn-back-home">
-          Continuer mes achats
+          Continuar comprando
         </Link>
       </div>
     );
@@ -25,16 +25,16 @@ export default function CartPage() {
 
   return (
     <div className="cart-page-container">
-      <h1 className="page-title">Mon Panier ({cart.length})</h1>
+      <h1 className="page-title">Mi Carrito ({cart.length})</h1>
       
       <div className="cart-content-wrapper">
         
-        {/* Colonne de Gauche : Liste des produits ajoutés */}
+        {/* Columna Izquierda: Lista de productos añadidos */}
         <div className="cart-items-list">
           {cart.map((item) => (
             <div key={item.id} className="cart-item-card">
               
-              {/* Image simple confinée dans son cadre */}
+              {/* Imagen simple confinada en su contenedor */}
               <div className="cart-item-img-wrapper">
                 <img 
                   src={item.image} 
@@ -43,14 +43,14 @@ export default function CartPage() {
                 />
               </div>
               
-              {/* Détails textuels du produit */}
+              {/* Detalles de texto del producto */}
               <div className="cart-item-details">
                 <span className="cart-item-cat">{item.category}</span>
                 <h3 className="cart-item-name">{item.name}</h3>
-                <p className="cart-item-unit-price">Prix unitaire : {item.price} €</p>
+                <p className="cart-item-unit-price">Precio unitario: {item.price} €</p>
               </div>
 
-              {/* Sélecteur de quantité numérique */}
+              {/* Selector numérico de cantidad */}
               <div className="cart-item-quantity">
                 <button 
                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -67,13 +67,13 @@ export default function CartPage() {
                 </button>
               </div>
 
-              {/* Sous-total et bouton de suppression */}
+              {/* Subtotal y botón de eliminación */}
               <div className="cart-item-actions">
                 <p className="cart-item-subtotal">{(item.price * item.quantity).toLocaleString()} €</p>
                 <button 
                   onClick={() => removeFromCart(item.id)} 
                   className="btn-remove-item" 
-                  title="Supprimer l'article"
+                  title="Eliminar artículo"
                   type="button"
                 >
                   <i className="far fa-trash-alt"></i>
@@ -84,18 +84,18 @@ export default function CartPage() {
           ))}
         </div>
 
-        {/* Colonne de Droite : Résumé financier fixe */}
+        {/* Columna Derecha: Resumen financiero fijo */}
         <div className="cart-summary-card">
-          <h3>Résumé de la commande</h3>
+          <h3>Resumen del pedido</h3>
           
           <div className="summary-row">
-            <span>Sous-total</span>
+            <span>Subtotal</span>
             <span>{totalPrice.toLocaleString()} €</span>
           </div>
           
           <div className="summary-row">
-            <span>Livraison</span>
-            <span className="free-shipping">Gratuite</span>
+            <span>Envío</span>
+            <span className="free-shipping">Gratis</span>
           </div>
           
           <div className="summary-divider"></div>
@@ -107,10 +107,10 @@ export default function CartPage() {
           
           <button 
             className="btn-checkout" 
-            onClick={() => alert("Redirection vers la passerelle de paiement...")}
+            onClick={() => alert("Redirigiendo a la pasarela de pago...")}
             type="button"
           >
-            Commander
+            Tramitar pedido
           </button>
         </div>
 

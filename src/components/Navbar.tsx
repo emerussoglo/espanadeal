@@ -4,225 +4,208 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { usePathname, useRouter } from "next/navigation"; // <-- AJOUT DE useRouter
-
-
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTxt, setSearchTxt] = useState("");          // <-- ÉTAT POUR LE TEXTE DE RECHERCHE
-  const [searchCat, setSearchCat] = useState("");          // <-- ÉTAT POUR LA CATÉGORIE SÉLECTIONNÉE
-const { cartCount } = useCart();
-const pathname = usePathname(); // <--- AJOUTER CETTE LIGNE
-const router = useRouter(); //
+  const [searchTxt, setSearchTxt] = useState("");          // ESTATO PARA EL TEXTO DE BÚSQUEDA
+  const [searchCat, setSearchCat] = useState("");          // ESTATO PARA LA CATEGORÍA SELECCIONADA
+  const { cartCount } = useCart();
+  const pathname = usePathname();
+  const router = useRouter();
 
-const handleSearchSubmit = (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let url = `/?search=${encodeURIComponent(searchTxt.trim())}`;
     if (searchCat) {
       url += `&cat=${searchCat}`;
     }
-    setIsMenuOpen(false); // Ferme la sidebar mobile au cas où
-    router.push(url);     // Envoie l'utilisateur sur l'URL filtrée
+    setIsMenuOpen(false); // Cierra la barra lateral móvil por si acaso
+    router.push(url);     // Envía al usuario a la URL filtrada
   };
 
   return (
     <header className="header-container">
-      {/* --- NIVEAU 1 : BARRE PRINCIPALE --- */}
+      {/* --- NIVEL 1: BARRA PRINCIPAL --- */}
       <div className="main-navbar">
-        {/* Bouton Burger (Mobile) */}
+        {/* Botón Burger (Móvil) */}
         <button 
           className="burger-menu" 
           onClick={() => setIsMenuOpen(true)}
-          aria-label="Ouvrir le menu"
+          aria-label="Abrir menú"
         >
           <i className="fas fa-bars"></i>
         </button>
 
-        {/* Zone Logo */}
+        {/* Zona del Logo */}
         <div className="nav-logo">
           <Link href="/">
             <img
               src="/img/logo.png" 
-              alt=" Logo" 
+              alt="Logo" 
             />
           </Link>
         </div>
 
-        {/* Barre de Recherche (Desktop uniquement à ce niveau) */}
+        {/* Barra de Búsqueda (Solo Desktop en este nivel) */}
         <div className="nav-search-container desktop-search">
           <form onSubmit={handleSearchSubmit} className="search-form">
-  <input 
-    type="text" 
-    placeholder="Rechercher des produits..." 
-    className="search-input"
-    value={searchTxt}
-    onChange={(e) => setSearchTxt(e.target.value)}
-  />
-  <div className="search-select-wrapper">
-    <select 
-      className="search-category"
-      value={searchCat}
-      onChange={(e) => setSearchCat(e.target.value)}
-    >
-      <option value="">Toutes les catégories</option>
-      <option value="electronique">Appareils électroniques</option>
-      <option value="beaute">Beauté et soin</option>
-      <option value="maison">Maison</option>
-      <option value="sport">Sport / Fitness</option>
-    </select>
-  </div>
-  <button type="submit" className="search-button" aria-label="Rechercher">
-    <i className="fas fa-search"></i>
-  </button>
-</form>
+            <input 
+              type="text" 
+              placeholder="Buscar productos..." 
+              className="search-input"
+              value={searchTxt}
+              onChange={(e) => setSearchTxt(e.target.value)}
+            />
+            <div className="search-select-wrapper">
+              <select 
+                className="search-category"
+                value={searchCat}
+                onChange={(e) => setSearchCat(e.target.value)}
+              >
+                <option value="">Todas las categorías</option>
+                <option value="electronique">Dispositivos electrónicos</option>
+                <option value="beaute">Belleza y cuidado personal</option>
+                <option value="maison">Hogar</option>
+                <option value="sport">Deporte / Fitness</option>
+              </select>
+            </div>
+            <button type="submit" className="search-button" aria-label="Buscar">
+              <i className="fas fa-search"></i>
+            </button>
+          </form>
         </div>
 
-        {/* Actions Icones */}
+        {/* Acciones Iconos */}
         <div className="nav-actions">
-          <Link href="/contact" className="action-icon fav-desktop" aria-label="Contact">
-  <i className="far fa-envelope"></i>
-</Link>
-          {/* Dans la section .nav-actions desktop */}
-<Link href="/panier" className="action-icon cart-icon-wrapper" aria-label="Panier">
-  <i className="fas fa-shopping-bag"></i>
-  {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-</Link>
+          <Link href="/contact" className="action-icon fav-desktop" aria-label="Contacto">
+            <i className="far fa-envelope"></i>
+          </Link>
+          <Link href="/panier" className="action-icon cart-icon-wrapper" aria-label="Carrito">
+            <i className="fas fa-shopping-bag"></i>
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </Link>
         </div>
       </div>
 
-      {/* --- NIVEAU 2 : BARRE DE NAVIGATION INFÉRIEURE (Desktop uniquement) --- */}
+      {/* --- NIVEL 2: BARRE DE NAVEGACIÓN INFERIOR (Solo Desktop) --- */}
       <div className="bottom-navbar">
         <div className="bottom-navbar-container">
-          {/* Menu Magasiner par catégorie */}
-          {/* <div className="category-menu-dropdown">
-            <i className="fas fa-th-large"></i> Magasiner par catégorie <i className="fas fa-chevron-down arrow-down"></i>
-          </div> */}
-
           <ul className="nav-links">
-  <li>
-    <Link href="/" className={pathname === "/" ? "active-link" : ""}>
-      Accueil
-    </Link>
-  </li>
-  <li>
-    <Link href="/produits" className={pathname === "/produits" ? "active-link" : ""}>
-      Tous nos produits
-    </Link>
-  </li>
-  <li>
-    <Link href="/vedette" className={`link-featured ${pathname === "/vedette" ? "active-link" : ""}`}>
-      Produit Vedette <i className="fas fa-fire icon-fire"></i>
-    </Link>
-  </li>
-  <li>
-    <Link href="/contact" className={pathname === "/contact" ? "active-link" : ""}>
-      Contact
-    </Link>
-  </li>
-</ul>
+            <li>
+              <Link href="/" className={pathname === "/" ? "active-link" : ""}>
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link href="/produits" className={pathname === "/produits" ? "active-link" : ""}>
+                Todos nuestros productos
+              </Link>
+            </li>
+            <li>
+              <Link href="/vedette" className={`link-featured ${pathname === "/vedette" ? "active-link" : ""}`}>
+                Producto Destacado <i className="fas fa-fire icon-fire"></i>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className={pathname === "/contact" ? "active-link" : ""}>
+                Contacto
+              </Link>
+            </li>
+          </ul>
 
-
-          {/* Numéro de téléphone à droite */}
-
+          {/* Número de teléfono a la derecha */}
           <div className="nav-phone">
-            <a href="tel:+34666754415">+34666754415</a>
+            <a href="tel:+34666754415">+34 666 754 415</a>
           </div>
         </div>
-
-        
       </div>
 
+      {/* Barra de búsqueda para móvil debajo de la barra principal */}
+      <div className="mobile-search-wrapper imagine-im">
+        <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
+          <input 
+            type="text" 
+            placeholder="Buscar productos..." 
+            className="search-input"
+            value={searchTxt}
+            onChange={(e) => setSearchTxt(e.target.value)}
+          />
+          <button type="submit" className="search-button mobile-btn-blue" aria-label="Buscar">
+            <i className="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
 
-        <div className="mobile-search-wrapper imagine-im" >
-  <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
-    <input 
-      type="text" 
-      placeholder="Rechercher des produits..." 
-      className="search-input"
-      value={searchTxt}
-      onChange={(e) => setSearchTxt(e.target.value)}
-    />
-    <button type="submit" className="search-button mobile-btn-blue" aria-label="Rechercher">
-      <i className="fas fa-search"></i>
-    </button>
-  </form>
-</div>
-
-      
-
-      {/* --- MENU RESPONSIVE MOBILE SIDEBAR (Coulisse depuis la gauche) --- */}
+      {/* --- MENU RESPONSIVE MOBILE SIDEBAR (Desliza desde la izquierda) --- */}
       <div className={`mobile-sidebar-overlay ${isMenuOpen ? "active" : ""}`} onClick={() => setIsMenuOpen(false)}>
         <div className="mobile-sidebar" onClick={(e) => e.stopPropagation()}>
           
-          {/* Entête du menu mobile */}
+          {/* Encabezado del menú móvil */}
           <div className="sidebar-header">
             <button className="close-sidebar" onClick={() => setIsMenuOpen(false)}>
               <i className="fas fa-times"></i>
             </button>
           </div>
 
-          {/* Corps du menu mobile */}
+          {/* Cuerpo del menú móvil */}
           <div className="sidebar-body">
             
-            {/* Barre de recherche intégrée au menu sur mobile */}
+            {/* Barra de búsqueda móvil dentro del menú */}
             <div className="mobile-search-wrapper">
-  <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
-    <input 
-      type="text" 
-      placeholder="Rechercher des produits..." 
-      className="search-input"
-      value={searchTxt}
-      onChange={(e) => setSearchTxt(e.target.value)}
-    />
-    <button type="submit" className="search-button mobile-btn-blue" aria-label="Rechercher">
-      <i className="fas fa-search"></i>
-    </button>
-  </form>
-</div>
+              <form onSubmit={handleSearchSubmit} className="search-form mobile-search-form">
+                <input 
+                  type="text" 
+                  placeholder="Buscar productos..." 
+                  className="search-input"
+                  value={searchTxt}
+                  onChange={(e) => setSearchTxt(e.target.value)}
+                />
+                <button type="submit" className="search-button mobile-btn-blue" aria-label="Buscar">
+                  <i className="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
 
-
-{/* Liens de pages classiques */}
+            {/* Enlaces clásicos */}
             <ul className="sidebar-nav-links">
-              <li><Link href="/">Accueil</Link></li>
-              <li><Link href="/produits">Tous nos produits</Link></li>
-              <li><Link href="/vedette" className="link-featured">Produit Vedette <i className="fas fa-fire icon-fire"></i></Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/">Inicio</Link></li>
+              <li><Link href="/produits">Todos nuestros productos</Link></li>
+              <li><Link href="/vedette" className="link-featured">Producto Destacado <i className="fas fa-fire icon-fire"></i></Link></li>
+              <li><Link href="/contact">Contacto</Link></li>
             </ul>
+            
             <div className="sidebar-divider"></div>
 
-            
             <div className="sidebar-section-title">
-              <span>Filtrer par catégorie</span>
-              <Link href="/produits" className="see-all-link">Tout voir</Link>
+              <span>Filtrar por categoría</span>
+              <Link href="/produits" className="see-all-link">Ver todo</Link>
             </div>
 
             <ul className="sidebar-categories-list">
-  <li>
-    <Link href="/?search=&cat=electronique">
-      <i className="fas fa-laptop"></i> Appareils électroniques
-    </Link>
-  </li>
-  <li>
-    <Link href="/?search=&cat=beaute">
-      <i className="fas fa-pump-soap"></i> Beauté et soin
-    </Link>
-  </li>
-  <li>
-    <Link href="/?search=&cat=maison">
-      <i className="fas fa-couch"></i> Maison
-    </Link>
-  </li>
-  <li>
-    <Link href="/?search=&cat=sport">
-      <i className="fas fa-basketball-ball"></i> Sport / Fitness
-    </Link>
-  </li>
-</ul>
+              <li>
+                <Link href="/?search=&cat=electronique">
+                  <i className="fas fa-laptop"></i> Dispositivos electrónicos
+                </Link>
+              </li>
+              <li>
+                <Link href="/?search=&cat=beaute">
+                  <i className="fas fa-pump-soap"></i> Belleza y cuidado personal
+                </Link>
+              </li>
+              <li>
+                <Link href="/?search=&cat=maison">
+                  <i className="fas fa-couch"></i> Hogar
+                </Link>
+              </li>
+              <li>
+                <Link href="/?search=&cat=sport">
+                  <i className="fas fa-basketball-ball"></i> Deporte / Fitness
+                </Link>
+              </li>
+            </ul>
 
             <div className="sidebar-divider"></div>
-
-            
           </div>
 
         </div>

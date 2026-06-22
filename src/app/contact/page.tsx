@@ -12,8 +12,8 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Logique d'envoi du formulaire (API, Email, etc.)
-    alert(`Merci ${formData.name}, votre message a bien été envoyé !`);
+    // Lógica de envío del formulario (API, Email, etc.)
+    alert(`¡Muchas gracias ${formData.name}, su mensaje ha sido enviado correctamente!`);
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -24,20 +24,20 @@ export default function ContactPage() {
 
   return (
     <div className="contact-page-container">
-      {/* En-tête de la page */}
+      {/* Encabezado de la página */}
       <div className="featured-hero">
-        <span className="featured-subtitle">Contactez-nous</span>
-        <h1>Une question ? Nous sommes là pour vous</h1>
-        <p>Notre équipe support vous répond dans les plus brefs délais pour toute demande d'information ou suivi de commande.</p>
+        <span className="featured-subtitle">Contáctenos</span>
+        <h1>¿Tiene alguna pregunta? Estamos aquí para ayudarle</h1>
+        <p>Nuestro equipo de soporte le responderá lo antes posible para cualquier solicitud de información o seguimiento de su pedido.</p>
       </div>
 
       <div className="contact-content-grid">
-        {/* Colonne de gauche : Formulaire de contact */}
+        {/* Columna izquierda: Formulario de contacto */}
         <div className="contact-form-card">
-          <h2>Envoyez-nous un message</h2>
+          <h2>Envíenos un mensaje</h2>
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
-              <label htmlFor="name">Nom complet</label>
+              <label htmlFor="name">Nombre completo</label>
               <input
                 type="text"
                 id="name"
@@ -45,12 +45,12 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Votre nom"
+                placeholder="Su nombre"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Adresse e-mail</label>
+              <label htmlFor="email">Correo electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -58,12 +58,12 @@ export default function ContactPage() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="nom@exemple.com"
+                placeholder="nombre@ejemplo.com"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="subject">Sujet</label>
+              <label htmlFor="subject">Asunto</label>
               <input
                 type="text"
                 id="subject"
@@ -71,12 +71,12 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Objet de votre message"
+                placeholder="Asunto de su mensaje"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Votre message</label>
+              <label htmlFor="message">Su mensaje</label>
               <textarea
                 id="message"
                 name="message"
@@ -84,17 +84,17 @@ export default function ContactPage() {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Comment pouvons-nous vous aider ?"
+                placeholder="¿En qué podemos ayudarle?"
               ></textarea>
             </div>
 
             <button type="submit" className="btn-send-message">
-              Envoyer le message
+              Enviar mensaje
             </button>
           </form>
         </div>
 
-        {/* Colonne de droite : Infos pratiques de contact */}
+        {/* Columna derecha: Información práctica de contacto */}
         <div className="contact-info-column">
           <div className="info-status-card">
             <div className="info-item">
@@ -102,11 +102,11 @@ export default function ContactPage() {
                 <i className="fas fa-phone-alt"></i>
               </div>
               <div className="info-text">
-                <h3>Téléphone</h3>
+                <h3>Teléfono</h3>
                 <a href="tel:+34666754415" className="info-link">
-                  +34666754415
+                  +34 666 754 415
                 </a>
-                <p>Service client disponible du lun. au sam.</p>
+                <p>Atención al cliente disponible de lunes a sábado.</p>
               </div>
             </div>
 
@@ -115,11 +115,11 @@ export default function ContactPage() {
                 <i className="far fa-envelope"></i>
               </div>
               <div className="info-text">
-                <h3>Support E-mail</h3>
+                <h3>Soporte por Email</h3>
                 <a href="mailto:contact@espanadeal.com" className="info-link">
                   contact@espanadeal.com
                 </a>
-                <p>Réponse garantie sous 24h ouvrées.</p>
+                <p>Respuesta garantizada en menos de 24h laborables.</p>
               </div>
             </div>
 
@@ -128,9 +128,9 @@ export default function ContactPage() {
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <div className="info-text">
-                <h3>Notre Siège</h3>
+                <h3>Nuestra Sede</h3>
                 <p className="info-address">
-                  Cotonou, Bénin
+                  Cotonú, Benín
                 </p>
               </div>
             </div>
@@ -140,9 +140,9 @@ export default function ContactPage() {
                 <i className="far fa-clock"></i>
               </div>
               <div className="info-text">
-                <h3>Horaires d'ouverture</h3>
-                <p>Lundi - Vendredi : 8h00 - 19h00</p>
-                <p>Samedi : 9h00 - 17h00</p>
+                <h3>Horario de atención</h3>
+                <p>Lunes - Viernes: 8:00 - 19:00</p>
+                <p>Sábado: 9:00 - 17:00</p>
               </div>
             </div>
           </div>

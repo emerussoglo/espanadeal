@@ -6,13 +6,13 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "Espanadeal - Boutique en ligne",
-  description: "Trouvez les meilleurs produits sur Espanadeal",
+  title: "Espanadeal - Tienda en línea",
+  description: "Encuentre los mejores productos en Espanadeal",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
+    <html lang="es">
       <head>
         <link 
           rel="stylesheet" 

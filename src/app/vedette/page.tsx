@@ -3,16 +3,90 @@
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 
-// Sélection des meilleurs produits (les vedettes de ta liste)
+// Selección de los mejores productos reales de tu lista PRODUCTS_DATA
 const FEATURED_PRODUCTS = [
-  { id: 1, name: "iPhone", price: 999, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60", tag: "Coup de cœur" },
-  { id: 3, name: "PlayStation 5 (PS5)", price: 499, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500&auto=format&fit=crop&q=60", tag: "Top Vente" },
-  { id: 6, name: "Sneakers Jordan", price: 180, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60", tag: "Populaire" },
-  { id: 9, name: "Parfums", price: 85, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60", tag: "Tendance" },
-  { id: 11, name: "Aspirateurs robots", price: 240, category: "Maison", image: "https://images.unsplash.com/photo-1518133680790-3985ecea5649?w=500&auto=format&fit=crop&q=60", tag: "Meilleure Note" },
-  { id: 15, name: "Vélos électriques", price: 1200, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60", tag: "Offre Spéciale" }
+  { 
+    id: 10, 
+    name: "Apple iPhone 16 (128 GB) - Cian + Funda Transparente con MagSafe", 
+    price: 806, 
+    category: "Dispositivos electrónicos", 
+    image: "/img/iPhone16.jpg", 
+    tag: "Favorito" 
+  },
+  { 
+    id: 17, 
+    name: "Sony, Consola PlayStation 5 Edición Estándar 1 TB con lector Blu-ray 4K, SSD Ultrarrápido, Audio 3D, Ray Tracing, 1 Mando DualSense con Retroalimentación Háptica", 
+    price: 509.99, 
+    category: "Dispositivos electrónicos", 
+    image: "/img/SonyConsolePlayStation5.jpg", 
+    tag: "Más Vendido" 
+  },
+  { 
+    id: 24, 
+    name: "Skechers Uno-Night Shades, Zapatillas", 
+    price: 52.99, 
+    category: "Deporte / Fitness", 
+    image: "/img/SkechersUno-NightShades.jpg", 
+    tag: "Popular" 
+  },
+  { 
+    id: 32, 
+    name: "JEANNE ARTHES - Perfume para Hombre Sexy Boy Intense - Eau de Parfum - Frasco Vaporizador de 100 ml", 
+    price: 5.12, 
+    category: "Belleza y cuidado personal", 
+    image: "/img/JEANNEARTHES.jpg", 
+    tag: "Tendencia" 
+  },
+  { 
+    id: 36, 
+    name: "Ninja Foodi FlexDrawer Freidora de Aire, Dual Zone Con Separador Extraíble", 
+    price: 156, 
+    category: "Cocina", 
+    image: "/img/NinjaFoodiFlexDrawerAir.jpg", 
+    tag: "Mejor Valoración" 
+  },
+  { 
+    id: 42, 
+    name: "URLIFE Bicicleta Eléctrica para Adultos, Neumáticos Anchos de 16\"", 
+    price: 1299, 
+    category: "Deporte / Fitness", 
+    image: "/img/URLIFEVeloelectrique.jpg", 
+    tag: "Oferta Especial" 
+  },
+  // Nouveaux produits ajoutés en plus :
+  { 
+    id: 39, 
+    name: "iPhone 17 Pro Max", 
+    price: 1199, 
+    category: "Dispositivos electrónicos", 
+    image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/09/apple-iphone-17-pro-max-frandroid-2025-768x768.png?webp=1&key=edb35fd1", 
+    tag: "Nueva Generación" 
+  },
+  { 
+    id: 13, 
+    name: "Apple AirPods Pro 3 Auriculares Inalámbricos, Cancelación Activa de Ruido", 
+    price: 150, 
+    category: "Dispositivos electrónicos", 
+    image: "/img/AppleAirPodsPro3.jpg", 
+    tag: "Recomendado" 
+  },
+  { 
+    id: 31, 
+    name: "CeraVe Crema Hidratante para Rostro y Cuerpo, Hidratación 48H, Tecnología MVE + 3 Ceramidas + Ácido Hialurónico", 
+    price: 16.25, 
+    category: "Belleza y cuidado personal", 
+    image: "/img/CeraVeBaume.jpg", 
+    tag: "Top Calidad" 
+  },
+  { 
+    id: 37, 
+    name: "ECOVACS T50 Omni GEN2 Robot Aspirador con Estación, Potencia de 21000 Pa, Cepillo lateral y mopa", 
+    price: 270, 
+    category: "Hogar", 
+    image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg", 
+    tag: "Alta Tecnología" 
+  }
 ];
-
 export default function FeaturedPage() {
   const { addToCart } = useCart();
   const router = useRouter();
@@ -24,20 +98,20 @@ export default function FeaturedPage() {
 
   return (
     <div className="home-page-container">
-      {/* En-tête stylisé pour la section Vedette */}
+      {/* Encabezado estilizado para la sección Destacados */}
       <div className="featured-hero">
-        <span className="featured-subtitle">Exclusivités Espanadeal</span>
-        <h1>Les Meilleurs Produits du Moment</h1>
-        <p>Découvrez notre sélection exclusive de produits plébiscités par nos clients pour leur qualité et leur fiabilité.</p>
+        <span className="featured-subtitle">Exclusividades Espanadeal</span>
+        <h1>Los Mejores Productos del Momento</h1>
+        <p>Descubra nuestra selección exclusiva de productos más votados por nuestros clientes por su calidad y fiabilidad.</p>
       </div>
 
-      {/* Grille de produits - même structure mais avec le badge vedette */}
+      {/* Grilla de productos */}
       <div className="products-grid">
         {FEATURED_PRODUCTS.map((product) => (
           <div key={product.id} className="product-card">
             
             <div className="product-image-wrapper">
-              {/* Badge Vedette dynamique sur l'image */}
+              {/* Badge Dinámico en la imagen */}
               <span className="featured-badge">{product.tag}</span>
               
               <img 
@@ -57,7 +131,7 @@ export default function FeaturedPage() {
                 <button 
                   onClick={() => addToCart(product)} 
                   className="btn-add-cart"
-                  title="Ajouter au panier"
+                  title="Añadir al carrito"
                   type="button"
                 >
                   <i className="fas fa-shopping-basket"></i> +
@@ -67,7 +141,7 @@ export default function FeaturedPage() {
                   className="btn-buy-now"
                   type="button"
                 >
-                  Commander
+                  Comprar ahora
                 </button>
               </div>
             </div>

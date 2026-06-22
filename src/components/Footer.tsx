@@ -8,12 +8,10 @@ export default function Footer() {
     <footer className="main-footer">
       <div className="footer-container">
         
-         {/* Droits d'auteur à droite (comme ton modèle) */}
+        {/* Derechos de autor a la derecha */}
         <div className="footer-copyright">
-          <p>Copyright {currentYear} — <strong>ESPANA DEAL</strong>. Droits réservés !</p>
+          <p>Copyright {currentYear} — <strong>ESPANA DEAL</strong>. ¡Todos los derechos reservados!</p>
         </div> 
-
-       
 
       </div>
     </footer>

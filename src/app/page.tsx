@@ -5,26 +5,46 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Hero from "@/components/Hero";
 import { Suspense } from "react";
 
+// ==========================================
+// BASE DE DATOS DE PRODUCTOS (PRODUCTS_DATA)
+// ==========================================
 const PRODUCTS_DATA = [
-  { id: 1, name: "iPhone", price: 999, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=60" },
-  { id: 2, name: "Écouteurs Bluetooth", price: 149, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60" },
-  { id: 3, name: "PlayStation 5 (PS5)", price: 499, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500&auto=format&fit=crop&q=60" },
-  { id: 4, name: "Nintendo Switch", price: 299, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=500&auto=format&fit=crop&q=60" },
-  { id: 5, name: "Sneakers Nike", price: 120, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60" },
-  { id: 6, name: "Sneakers Jordan", price: 180, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60" },
-  { id: 7, name: "Sneakers New Balance", price: 110, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&auto=format&fit=crop&q=60" },
-  { id: 8, name: "Produits skincare", price: 45, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1608248597481-496100c8c836?w=500&auto=format&fit=crop&q=60" },
-  { id: 9, name: "Parfums", price: 85, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60" },
-  { id: 10, name: "Air Fryer", price: 130, category: "Cuisine", image: "https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=500&auto=format&fit=crop&q=60" },
-  { id: 11, name: "Aspirateurs robots", price: 240, category: "Maison", image: "https://images.unsplash.com/photo-1518133680790-3985ecea5649?w=500&auto=format&fit=crop&q=60" },
-  { id: 12, name: "Vélos de spinning", price: 350, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&auto=format&fit=crop&q=60" },
-  { id: 13, name: "Haltères", price: 60, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=500&auto=format&fit=crop&q=60" },
-  { id: 14, name: "Éclairage LED pour voiture", price: 25, category: "Maison", image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500&auto=format&fit=crop&q=60" },
-  { id: 15, name: "Vélos électriques", price: 1200, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60" },
-  { id: 16, name: "Montres connectées", price: 199, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60" },
-  { id: 17, name: "Accessoires téléphone", price: 15, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60" },
-  { id: 18, name: "Soins capillaires", price: 35, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60" },
-  { id: 20, name: "Équipements de gym à domicile", price: 450, category: "Sport/ Fitness", image: "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?w=500&auto=format&fit=crop&q=60" }
+  // Dispositivos electrónicos (High-Tech)
+  { id: 39, name: "iPhone 17 Pro Max", price: 1199, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/09/apple-iphone-17-pro-max-frandroid-2025-768x768.png?webp=1&key=edb35fd1" },
+  { id: 12, name: "iPhone 17 Pro", price: 1099, category: "Dispositivos electrónicos", image: "https://www.apple.com/v/iphone-17-pro/d/images/overview/contrast/iphone_17_pro__dwccrdina7qu_large.jpg" },
+  { id: 9, name: "iPhone 15 Pro Max", price: 620, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-pro-max-768x768.png?webp=1&key=6d7ed62f" },
+  { id: 10, name: "Apple iPhone 16 (128 GB) - Cian + Funda Transparente con MagSafe", price: 806, category: "Dispositivos electrónicos", image: "/img/iPhone16.jpg" },
+  { id: 11, name: "iPhone 16 Pro Max", price: 817.40, category: "Dispositivos electrónicos", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2024/08/apple-iphone-16-pro-max-frandroid-2024-hd-768x768.png?webp=1&key=ce4d50e3" },
+  
+  // Audio, Accesorios & Relojes
+  { id: 13, name: "Apple AirPods Pro 3 Auriculares Inalámbricos, Cancelación Activa de Ruido", price: 150, category: "Dispositivos electrónicos", image: "/img/AppleAirPodsPro3.jpg" },
+  { id: 14, name: "Sony WH-1000XM5SA Edición Especial con estuche blando, Cancelación Activa de Ruido, Bluetooth, calidad de llamada clara", price: 209, category: "Dispositivos electrónicos", image: "/img/SonyWH-1000XM5SA.jpg" },
+  { id: 15, name: "Apple Watch Series 9 (GPS + Cellular, 45 MM) Caja de Aluminio Blanco Estrella con Correa Deportiva Blanco Estrella, M/L (Reacondicionado)", price: 399, category: "Dispositivos electrónicos", image: "/img/AppleWatchSeries9.jpg" },
+  { id: 16, name: "CUKTECH Cargador USB C 100W, 3 Puertos GaN III Tech y PPS PD3.0 Cargador Rápido", price: 34.99, category: "Dispositivos electrónicos", image: "/img/CUKTECHChargeurUSBC.jpg" },
+  { id: 44, name: "JBL Wave Beam 2, Auriculares Inalámbricos Bluetooth, Cancelación de Ruido, 40 horas de autonomía", price: 49.99, category: "Dispositivos electrónicos", image: "/img/JBLWaveBeam2.jpg" },
+  { id: 45, name: "Auriculares inalámbricos para Apple iPhone - Auriculares Bluetooth 5.4 con ganchos para el oído, Estéreo", price: 27, category: "Dispositivos electrónicos", image: "/img/ecouteurssansfilpourApple.jpg" },
+  { id: 46, name: "Soundcore Space One Auriculares de Diadema Bluetooth Inalámbricos con Cancelación Activa de Ruido Adaptativa de Anker", price: 19.99, category: "Dispositivos electrónicos", image: "/img/SoundcoreSpaceOneCasque.jpg" },
+  { id: 47, name: "COROS Pace 4 Reloj Deportivo Ultraligero con Sensor de Frecuencia Cardíaca", price: 349, category: "Dispositivos electrónicos", image: "/img/COROSPace4Montre.jpg" },
+
+  // Videojuegos
+  { id: 17, name: "Sony, Consola PlayStation 5 Edición Estándar 1 TB con lector Blu-ray 4K, SSD Ultrarrápido, Audio 3D, Ray Tracing", price: 509.99, category: "Dispositivos electrónicos", image: "/img/SonyConsolePlayStation5.jpg" },
+  { id: 18, name: "Playstation Sony, Reproductor a Distancia Portal 5, Pantalla LCD Full HD de 8\", Juegos en Streaming vía Wi-Fi", price: 220, category: "Dispositivos electrónicos", image: "/img/PlaystationSonyLecteur.jpg" },
+  { id: 19, name: "Nintendo Switch (OLED) Consola de Juegos Portátil de 17,8 cm, 64 GB, Pantalla Táctil, WiFi, Blanco", price: 209, category: "Dispositivos electrónicos", image: "/img/NintendoSwitch.jpg" },
+
+  // Deporte / Fitness
+  { id: 20, name: "PUMA Tazon 6 Fracture FM, Zapatillas para Hombre", price: 34.99, category: "Deporte / Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
+{ id: 22, name: "Adidas Unisex Zapatillas VS Pace 2.0", price: 32, category: "Deporte / Fitness", image: "/img/adidasUnisexChaussure.jpg" },
+  { id: 23, name: "Skechers Uno Stand on Air Zapatillas", price: 48, category: "Deporte / Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
+  { id: 27, name: "Kit de Mancuernas Ajustables (20kg)", price: 42, category: "Deporte / Fitness", image: "/img/Halteres-reglables.jpg" },
+  { id: 42, name: "URLIFE Bicicleta Eléctrica para Adultos, Neumáticos Anchos de 16\"", price: 1299, category: "Deporte / Fitness", image: "/img/URLIFEVeloelectrique.jpg" },
+  
+  // Belleza y cuidado personal
+  { id: 30, name: "MIXA - Sérum Booster de Hidratación Intensa 24H - Rellena e Ilumina", price: 6.99, category: "Belleza y cuidado personal", image: "/img/MIXASérumBooste.jpg" },
+ { id: 32, name: "JEANNE ARTHES - Perfume para Hombre Sexy Boy Intense - Eau de Parfum - Frasco Vaporizador de 100 ml", price: 5.12, category: "Belleza y cuidado personal", image: "/img/JEANNEARTHES.jpg" },
+
+  // Hogar & Cocina
+  { id: 36, name: "Ninja Foodi FlexDrawer Freidora de Aire, Dual Zone Con Separador Extraíble", price: 156, category: "Cocina", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
+  { id: 37, name: "ECOVACS T50 Omni GEN2 Robot Aspirador con Estación, Potencia de 21000 Pa, Cepillo lateral y mopa", price: 270, category: "Hogar", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" }
 ];
 
 export function HomePageContent() {
@@ -32,26 +52,25 @@ export function HomePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // 1. Récupération des filtres depuis l'URL
+  // 1. Recuperación de los filtros desde la URL
   const searchQuery = searchParams.get("search")?.toLowerCase() || "";
   const categoryQuery = searchParams.get("cat") || "";
 
-  // 2. Traduction des slugs d'URL vers les vrais noms de catégories du tableau
- // 2. Traduction des slugs d'URL vers les vrais noms exacts de ton tableau PRODUCTS_DATA
+  // 2. Traducción de los slugs de URL a los nombres exactos de categorías del array PRODUCTS_DATA
   const categoryMapping: { [key: string]: string } = {
-    electronique: "Appareils électroniques",
-    beaute: "Beauté et soin",
-    maison: "Maison",
-    cuisine: "Cuisine",
-    sport: "Sport/ Fitness" // <-- Correspond exactement à l'écriture "Sport/ Fitness" de tes produits !
+    electronique: "Dispositivos electrónicos",
+    beaute: "Belleza y cuidado personal",
+    maison: "Hogar",
+    cuisine: "Cocina",
+    sport: "Deporte / Fitness"
   };
   const targetCategory = categoryMapping[categoryQuery] || "";
 
-  // 3. Filtrage dynamique super-robuste
+  // 3. Filtrado dinámico robusto
   const filteredProducts = PRODUCTS_DATA.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery);
     
-    // On nettoie les chaînes en enlevant les espaces et en passant en minuscules
+    // Limpieza de cadenas eliminando espacios y pasando a minúsculas
     const cleanProductCat = product.category.replace(/\s+/g, '').toLowerCase();
     const cleanTargetCat = targetCategory.replace(/\s+/g, '').toLowerCase();
     
@@ -67,78 +86,75 @@ export function HomePageContent() {
 
   return (
     <main>
-      {/* On n'affiche le Hero que si l'utilisateur n'est pas en train de filtrer */}
-      {!searchQuery && !categoryQuery && 
-      
-      <div>
-        <Hero />
-          
-        <div className="features-section">
-  <div className="features-container">
-    
-    {/* Carte 1 : Livraison */}
-    <div className="feature-card">
-  <div className="feature-icon-wrapper icon-shipping"> {/* Conserve la classe pour la couleur rouge/rosée */}
-    <i className="fas fa-award"></i>
-  </div>
-  <h3>Qualité Garantie</h3>
-  <p>Des produits 100% authentiques et sélectionnés avec soin</p>
-</div>
+      {/* El Hero y las ventajas solo se muestran si el usuario no está filtrando */}
+      {!searchQuery && !categoryQuery && (
+        <div>
+          <Hero />
+            
+          <div className="features-section">
+            <div className="features-container">
+              
+              {/* Tarjeta 1: Calidad */}
+              <div className="feature-card">
+                <div className="feature-icon-wrapper icon-shipping">
+                  <i className="fas fa-award"></i>
+                </div>
+                <h3>Calidad Garantizada</h3>
+                <p>Productos 100% auténticos y seleccionados con total cuidado</p>
+              </div>
 
-    {/* Carte 2 : Paiement */}
-    <div className="feature-card">
-      <div className="feature-icon-wrapper icon-security">
-        <i className="fas fa-shield-alt"></i>
-      </div>
-      <h3>Paiement Sécurisé</h3>
-      <p>Transactions 100% sécurisées et cryptées</p>
-    </div>
+              {/* Tarjeta 2: Pago */}
+              <div className="feature-card">
+                <div className="feature-icon-wrapper icon-security">
+                  <i className="fas fa-shield-alt"></i>
+                </div>
+                <h3>Pago Seguro</h3>
+                <p>Transacciones 100% protegidas y cifradas de forma segura</p>
+              </div>
 
-    {/* Carte 3 : Support */}
-    <div className="feature-card"> 
-      <div className="feature-icon-wrapper icon-support">
-        <i className="fas fa-headset"></i>
-      </div>
-      <h3>Support 24/7</h3>
-      <p>Assistance disponible à tout moment</p>
-    </div>
+              {/* Tarjeta 3: Soporte */}
+              <div className="feature-card"> 
+                <div className="feature-icon-wrapper icon-support">
+                  <i className="fas fa-headset"></i>
+                </div>
+                <h3>Soporte 24/7</h3>
+                <p>Asistencia disponible y atenta en cualquier momento</p>
+              </div>
 
-    {/* Carte 4 : Garantie */}
-    <div className="feature-card">
-  <div className="feature-icon-wrapper icon-guarantee">
-    <i className="fas fa-store"></i>
-  </div>
-  <h3>Retrait Rapide</h3>
-  <p>Récupérez vos articles directement et gagnez du temps</p>
-</div>
+              {/* Tarjeta 4: Retirada */}
+              <div className="feature-card">
+                <div className="feature-icon-wrapper icon-guarantee">
+                  <i className="fas fa-store"></i>
+                </div>
+                <h3>Recogida Rápida</h3>
+                <p>Recoja sus artículos directamente en tienda y ahorre tiempo</p>
+              </div>
 
-  </div>
-</div>
-      </div>
-      }
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="home-page-container">
         <div className="featured-hero">
-          <span className="featured-subtitle">Offres Exclusives Espanadeal</span>
+          <span className="featured-subtitle">Ofertas Exclusivas Espanadeal</span>
           <h1>
             {searchQuery || categoryQuery 
-              ? `Résultats de votre recherche (${filteredProducts.length})` 
-              : "Découvrez nos articles du moment"}
+              ? `Resultados de su búsqueda (${filteredProducts.length})` 
+              : "Descubra nuestros artículos destacados del momento"}
           </h1>
-          {/* <p>Des produits d'exception sélectionnés pour vous, livrés rapidement et directement chez vous au meilleur prix.</p> */}
           
-          {/* Bouton pour réinitialiser les filtres si besoin */}
+          {/* Botón para restablecer los filtros */}
           {(searchQuery || categoryQuery) && (
             <button 
               onClick={() => router.push("/")}
               style={{ marginTop: "15px", padding: "8px 16px", backgroundColor: "#1a1a1a", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontSize: "13px" }}
             >
-              Voir tous les produits
+              Ver todos los productos
             </button>
           )}
         </div>
-      
-
+        
         {filteredProducts.length > 0 ? (
           <div className="products-grid">
             {filteredProducts.map((product) => (
@@ -161,7 +177,7 @@ export function HomePageContent() {
                     <button 
                       onClick={() => addToCart(product)} 
                       className="btn-add-cart"
-                      title="Ajouter au panier"
+                      title="Añadir al carrito"
                       type="button"
                     >
                       <i className="fas fa-shopping-basket"></i> +
@@ -171,7 +187,7 @@ export function HomePageContent() {
                       className="btn-buy-now"
                       type="button"
                     >
-                      Commander
+                      Tramitar pedido
                     </button>
                   </div>
                 </div>
@@ -181,7 +197,7 @@ export function HomePageContent() {
         ) : (
           <div style={{ textAlign: "center", padding: "40px 20px", color: "#636366" }}>
             <i className="fas fa-search" style={{ fontSize: "30px", marginBottom: "15px", display: "block" }}></i>
-            Aucun produit ne correspond à vos critères.
+            Ningún producto coincide con sus criterios de búsqueda.
           </div>
         )}
       </div>
@@ -189,10 +205,10 @@ export function HomePageContent() {
   );
 }
 
-// Next.js demande d'envelopper useSearchParams dans un composant Suspense lors du build
+// Next.js requiere envolver useSearchParams en Suspense durante la compilación en producción
 export default function HomePage() {
   return (
-    <Suspense fallback={<div>Chargement...</div>}>
+    <Suspense fallback={<div>Cargando...</div>}>
       <HomePageContent />
     </Suspense>
   );
