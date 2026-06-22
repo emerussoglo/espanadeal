@@ -126,7 +126,7 @@ const handleSearchSubmit = (e: React.FormEvent) => {
           {/* Numéro de téléphone à droite */}
 
           <div className="nav-phone">
-            <a href="tel:+2290154627062">+229 01 54 62 70 62</a>
+            <a href="tel:+34666754415">+34666754415</a>
           </div>
         </div>
 

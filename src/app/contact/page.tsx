@@ -103,8 +103,8 @@ export default function ContactPage() {
               </div>
               <div className="info-text">
                 <h3>Téléphone</h3>
-                <a href="tel:+2290154627062" className="info-link">
-                  +229 01 54 62 70 62
+                <a href="tel:+34666754415" className="info-link">
+                  +34666754415
                 </a>
                 <p>Service client disponible du lun. au sam.</p>
               </div>

@@ -13,64 +13,56 @@ const PRODUCTS_DATA = [
   { id: 3, name: "iPhone 12 Pro", price: 479, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2020/10/iphone-12-max-frandroid-2020-768x768.png?webp=1&resize=580,580&key=85d800ac" },
   { id: 4, name: "iPhone 13", price: 499, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-frandroid-2021-768x768.png?webp=1&resize=580,580&key=a6b052d7" },
   { id: 5, name: "iPhone 13 Pro Max", price: 349, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/09/apple-iphone-13-pro-max-frandroid-2021-768x768.png?webp=1&resize=580,580&key=33af98cc" },
-  { id: 6, name: "iPhone 14", price: 599, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?w=500&auto=format&fit=crop&q=60" },
+  // { id: 6, name: "iPhone 14", price: 599, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1663499482523-1c0c1ebe4cc1?w=500&auto=format&fit=crop&q=60" },
   { id: 7, name: "iPhone 14 Pro", price: 699, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2022/09/iphone-14-pro-max-officiel-frandroid-2022-768x768.png?webp=1&key=1e26da76" },
   { id: 8, name: "iPhone 15", price: 749, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-768x768.png?webp=1&key=62513184" },
   { id: 9, name: "iPhone 15 Pro Max", price: 620, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2023/09/iphone-15-pro-max-768x768.png?webp=1&key=6d7ed62f" },
-  { id: 10, name: "iPhone 16", price: 899, category: "Appareils électroniques", image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-model-unselect-gallery-1-202409?wid=5120&hei=2880&fmt=webp&qlt=90&.v=ZnlzVUZzRWd3dlg0RllqbHhQSUpKTGdzSmpObkZCM3MrNmJ5SkhESlNDaWhXRnNvWU5kTFRnSWM5eDdhTWw0bEpFd0xhWDVibStLdGRYRmxkNGI4VTR2UjRaSC9URTlmd0FSb1ZTWjRnb3Y5aFhSWndydDBTaGRRd3dvbVFwcGk&traceId=1" },
+  { id: 10, name: "Apple iPhone 16 (128 Go) - Cyan + Coque Transparente avec MagSafe", price: 806, category: "Appareils électroniques", image: "/img/iPhone16.jpg" },
   { id: 11, name: "iPhone 16 Pro Max", price: 817.40, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2024/08/apple-iphone-16-pro-max-frandroid-2024-hd-768x768.png?webp=1&key=ce4d50e3" },
   { id: 12, name: "iPhone 17 Pro", price: 1099, category: "Appareils électroniques", image: "https://www.apple.com/v/iphone-17-pro/d/images/overview/contrast/iphone_17_pro__dwccrdina7qu_large.jpg" },
   { id: 39, name: "iPhone 17 Pro Max", price: 1199, category: "Appareils électroniques", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/09/apple-iphone-17-pro-max-frandroid-2025-768x768.png?webp=1&key=edb35fd1" },
   
   // Audio & Accessoires
-  { id: 13, name: "AirPods Pro 2", price: 249, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=60" },
-  { id: 14, name: "Casque Sony WH-1000XM5", price: 349, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500&auto=format&fit=crop&q=60" },
-  { id: 15, name: "Apple Watch Series 9", price: 399, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60" },
-  { id: 16, name: "Chargeur Rapide MagSafe", price: 25, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60" },
+  { id: 13, name: "Apple AirPods Pro 3 Écouteurs sans Fil, réduction Active du Bruit", price: 150, category: "Appareils électroniques", image: "/img/AppleAirPodsPro3.jpg" },
+  { id: 14, name: "Sony WH-1000XM5SA Édition Spéciale avec étui Souple, réduction de Bruit Active, Bluetooth, qualité d'appel Claire", price: 209, category: "Appareils électroniques", image: "/img/SonyWH-1000XM5SA.jpg" },
+  { id: 15, name: "Apple Watch Series 9 (GPS + Cellulaire, 45 MM) Boîtier Aluminium Starlight avec Bracelet Sport Starlight, M/L (Reconditionné)", price: 399, category: "Appareils électroniques", image: "/img/AppleWatchSeries9.jpg" },
+  { id: 16, name: "CUKTECH Chargeur USB C 100W, 3 Ports GaN III Tech et PPS PD3.0 Chargeur Rapide, Chargeur 100W USB C Rapide", price: 34.99, category: "Appareils électroniques", image: "/img/CUKTECHChargeurUSBC.jpg" },
   
   // Gaming
-  { id: 17, name: "PlayStation 5 (PS5) Slim", price: 499, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500&auto=format&fit=crop&q=60" },
-  { id: 18, name: "PlayStation 5 Pro", price: 799, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500&auto=format&fit=crop&q=60" },
-  { id: 19, name: "Nintendo Switch OLED", price: 329, category: "Appareils électroniques", image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=500&auto=format&fit=crop&q=60" },
+  { id: 17, name: "Sony, Console PlayStation 5 Édition Standard 1 To avec lecteur Blu-ray 4K, SSD Ultra-Rapide, Audio 3D, Ray Tracing, 1 Manette DualSense avec Retour Haptique", price: 509.99, category: "Appareils électroniques", image: "/img/SonyConsolePlayStation5.jpg" },
+  { id: 18, name: "Playstation Sony, Lecteur à Distance Portal 5, Écran LCD Full HD de 8, Jeux en Streaming via Wi-Fi, Retour Haptique & Gâchettes Adaptatives, Couleur  Blanche", price: 220, category: "Appareils électroniques", image: "/img/PlaystationSonyLecteur.jpg" },
+  { id: 19, name: "Nintendo Switch (OLED) Console de Jeux Portables 17,8 cm  64 Go Écran Tactile WiFi Blanc", price: 209, category: "Appareils électroniques", image: "/img/NintendoSwitch.jpg" },
 
   // ==========================================
   // SPORT / FITNESS (Sneakers & Gym)
   // ==========================================
-  { id: 20, name: "Sneakers Nike Air Force 1", price: 120, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60" },
-  { id: 21, name: "Sneakers Nike Air Max TN", price: 190, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60" },
-  { id: 22, name: "Sneakers Jordan 4 Retro", price: 210, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60" },
-  { id: 23, name: "Sneakers Jordan 1 Mid", price: 140, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=500&auto=format&fit=crop&q=60" },
-  { id: 24, name: "Sneakers New Balance 550", price: 130, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&auto=format&fit=crop&q=60" },
-  { id: 25, name: "Sneakers New Balance 2002R", price: 150, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=500&auto=format&fit=crop&q=60" },
-  
-  // Équipements de Sport
-  { id: 26, name: "Vélo de spinning Pro", price: 380, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&auto=format&fit=crop&q=60" },
-  { id: 27, name: "Kit Haltères Réglables (20kg)", price: 85, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=500&auto=format&fit=crop&q=60" },
-  { id: 28, name: "Vélo Électrique Urbain", price: 1150, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format&fit=crop&q=60" },
-  { id: 29, name: "Banc de musculation réglable", price: 140, category: "Sport / Fitness", image: "https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?w=500&auto=format&fit=crop&q=60" },
-
-  // ==========================================
+  { id: 20, name: "PUMA Tazon 6 Fracture FM, Men's Sneaker", price: 34.99, category: "Sport / Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
+  { id: 21, name: "Puma Smash V2 L BasketsMixte", price: 24.99, category: "Sport / Fitness", image: "/img/PumaSmashV2LBasketsMixte.jpg" },
+  { id: 22, name: "Adidas Unisex Chaussure VS Pace 2.0", price: 32, category: "Sport / Fitness", image: "/img/adidasUnisexChaussure.jpg" },
+  { id: 23, name: "Skechers Uno Stand on Air Basket", price: 48, category: "Sport / Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
+  { id: 24, name: "Skechers Uno-Night Shades, Baskets", price: 52.99, category: "Sport / Fitness", image: "/img/SkechersUno-NightShades.jpg" },
+  { id: 27, name: "Kit Haltères Réglables (20kg)", price: 42, category: "Sport / Fitness", image: "/img/Halteres-reglables.jpg" },
+ 
   // BEAUTÉ ET SOIN (Skincare & Parfums)
   // ==========================================
-  { id: 30, name: "Sérum Visage Acide Hyaluronique", price: 25, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1608248597481-496100c8c836?w=500&auto=format&fit=crop&q=60" },
-  { id: 31, name: "Crème Hydratante CeraVe", price: 18, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1608248597481-496100c8c836?w=500&auto=format&fit=crop&q=60" },
-  { id: 32, name: "Parfum Sauvage - Dior", price: 115, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60" },
-  { id: 33, name: "Parfum Bleu de Chanel", price: 125, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&auto=format&fit=crop&q=60" },
-  { id: 34, name: "Huile Capillaire Fortifiante", price: 30, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60" },
-  { id: 35, name: "Pack Soins Cheveux Bouclés", price: 45, category: "Beauté et soin", image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=60" },
-  
+  { id: 30, name: "MIXA - Sérum Booster d'Hydratation Intense 24H - Repulpe & Illumine", price: 6.99, category: "Beauté et soin", image: "/img/MIXASérumBooste.jpg" },
+  { id: 31, name: "CeraVe Baume Hydratant Visage & Corps, Hydratation 48H, Technologie MVE + 3 Céramides + Acide Hyaluronique", price: 16.25, category: "Beauté et soin", image: "/img/CeraVeBaume.jpg" },
+  { id: 32, name: "EANNE ARTHES - Parfum Homme Sexy Boy Intense - Eau de Parfum - Flacon Vaporisateur 100 ml", price: 5.12, category: "Beauté et soin", image: "/img/JEANNEARTHES.jpg" },
+ 
   // ==========================================
   // MAISON & CUISINE
   // ==========================================
-  { id: 36, name: "Air Fryer Numérique XL", price: 129, category: "Cuisine", image: "https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?w=500&auto=format&fit=crop&q=60" },
-  { id: 37, name: "Aspirateur Robot Connecté", price: 240, category: "Maison", image: "https://images.unsplash.com/photo-1518133680790-3985ecea5649?w=500&auto=format&fit=crop&q=60" },
-  { id: 38, name: "Kit Ruban Éclairage LED Voiture", price: 20, category: "Maison", image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500&auto=format&fit=crop&q=60" },
-  { id: 40, name: "Shokz OpenFit Pro", price: 249, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2026/02/shokz-openfit-pro-frandroid-2026-300x300.png?webp=1&key=940c8854" },
+  { id: 36, name: "Ninja Foodi FlexDrawer Air Fryer, Dual Zone Avec Séparateur Amovible", price: 156, category: "Cuisine", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
+  { id: 37, name: "ECOVACS T50 Omni GEN2 Aspirateur Robot avec Station, Puissance 21000Pa, Brosse latérale et serpillière", price: 270, category: "Maison", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" },
+   { id: 40, name: "SHOKZ OpenFit Pro Open Ear Écouteurs sans fil Noir", price: 289, category: "Maison", image: "/img/SHOKZOpenFitProOpen.jpg" },
   { id: 41, name: "Realme Buds Clip", price: 74.99, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/12/realme-buds-clip-frandroid-2025-300x300.png?webp=1&key=4be0b994" },
-  { id: 41, name: "HP OmniBook 5 16-bf0008nf", price: 899.99, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2026/02/hp-omnibook-5-16-bf0008nf-frandroid-2026-300x300.png?webp=1&key=72497a70" },
-  { id: 41, name: "Asus Zenbook A14 (UX3407)", price: 1049.99, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/02/asus-zenbook-a14-ux3407-frandroid-2025-300x300.png?webp=1&key=d568c462" },
-  { id: 41, name: "Apple MacBook Air 13 M4 (2025)", price: 929, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2025/03/apple-macbook-air-13-m4-2025-frandroid-2025-300x300.png?webp=1&key=4ec6a357" },
-  { id: 41, name: "Coros Pace Pro", price: 349, category: "Maison", image: "https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2024/10/coros-pace-pro-frandroid-2024-300x300.png?webp=1&key=70c62fb0" },
+  { id: 42, name: "URLIFE Vélo Électrique pour Adultes, Pneus Larges 16", price: 1299, category: "Appareils électroniques", image: "/img/URLIFEVeloelectrique.jpg" },
+  { id: 43, name: "ZIPRO Vélo d'Appartement Adulte avec Résistance Magnétique à 8 Niveaux, Écran LCD, Support pour Téléphone et Selle Réglable", price: 109, category: "Appareils électroniques", image: "/img/ZIPROVelo.jpg" },
+  { id: 44, name: "JBL Wave Beam 2, Écouteurs sans Fil Bluetooth, réduction de Bruit, 40 Heures d'autonomie", price: 49.99, category: "Maison", image: "/img/JBLWaveBeam2.jpg" },
+  { id: 45, name: "Écouteurs sans fil pour Apple iPhone - Écouteurs Bluetooth 5.4 avec crochets d'oreille, stéréo", price: 27, category: "Maison", image: "/img/ecouteurssansfilpourApple.jpg" },
+  { id: 46, name: "Soundcore Space One Casque Bluetooth sans Fil avec Réduction de Bruit Active Adaptative by Anker, Réduction des Voix Humaine 2X Plus Efficace", price: 19.99, category: "Maison", image: "/img/SoundcoreSpaceOneCasque.jpg" },
+  { id: 41, name: "COROS Pace 4 Montre de Sport Ultralégère Capteur de Fréquence Cardiaque", price: 349, category: "Maison", image: "/img/COROSPace4Montre.jpg" },
+  
 ];
 
 export default function ProductsPage() {

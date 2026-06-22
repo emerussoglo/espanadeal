@@ -42,7 +42,6 @@ body {
   margin-bottom: 30px;
   position: relative;
 }
-
 /* GRILLE RESPONSIVE PRO (4 colonnes desktop, 3 tablette, 2 mobile) */
 .products-grid {
   display: grid;
@@ -58,22 +57,37 @@ body {
   height: 100%;
 }
 
-/* Extrait des règles pour l'image dans globals.css */
+/* CADRE DE L'IMAGE CUBIQUE ET PARFAITEMENT CENTRÉ */
 .product-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1; /* Crée le cadre carré parfait */
-  background-color: #f7f7f7;
+  aspect-ratio: 1 / 1; /* Cadre carré parfait */
+  background-color: #fff;
   overflow: hidden;
+  
+  /* AJOUTS : Force le centrage absolu de tout ce qui est à l'intérieur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px; /* Optionnel : laisse une petite marge interne pour que le produit ne colle pas aux bords du carré gris */
 }
 
+/* IMAGE PROPRE ET VISIBLE À 100% */
 .product-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Remplit le carré sans déformer ni étirer l'image */
+  
+  /* CORRECTION CRITIQUE : */
+  object-fit: contain; /* L'image s'adapte pour être entièrement visible sans être rognée */
   object-position: center;
+  
   display: block;
   transition: transform 0.4s ease;
+}
+
+/* Effet zoom propre au survol (ne déborde pas grâce à overflow: hidden) */
+.product-card:hover .product-img {
+  transform: scale(1.06);
 }
 
 .product-card:hover .product-img {
