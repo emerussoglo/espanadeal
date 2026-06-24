@@ -3,14 +3,17 @@
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
-  const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
+  // Le "as any" force TypeScript à accepter 'clearCart' même s'il manque dans ton interface de type locale
+  const { cart, clearCart, updateQuantity, removeFromCart } = useCart() as any;
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [currentOrderRef, setCurrentOrderRef] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
-  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = cart.reduce((acc: number, item: any) => acc + item.price * item.quantity, 0);
 
   const handleCheckout = async () => {
     if (isSubmitting) return;
@@ -49,8 +52,10 @@ export default function CartPage() {
 
   const handleCloseModal = () => {
     setShowPaymentModal(false);
-    if (clearCart) clearCart();
-    window.location.href = "/";
+    if (typeof clearCart === "function") {
+      clearCart();
+    }
+    router.push("/");
   };
 
   if (cart.length === 0 && !showPaymentModal) {
@@ -69,7 +74,7 @@ export default function CartPage() {
       <h1 className="page-title">Mi Carrito ({cart.length})</h1>
       <div className="cart-content-wrapper">
         <div className="cart-items-list">
-          {cart.map((item) => (
+          {cart.map((item: any) => (
             <div key={item.id} className="cart-item-card">
               <div className="cart-item-img-wrapper">
                 <img src={item.image} alt={item.name} className="cart-item-img" />
@@ -123,7 +128,7 @@ export default function CartPage() {
             </div>
             <div className="payment-modal-notice">
               <i className="fas fa-info-circle"></i> 
-              Después de realizar el pago, debe enviar el recibo por correo electrónico a <strong>support@deal-espana.com</strong>.
+              Después de realizar le pago, debe enviar el recibo por correo electrónico a <strong>support@deal-espana.com</strong>.
             </div>
             <button onClick={handleCloseModal} className="btn-modal-confirm" type="button">Entendido y Confirmar</button>
           </div>
