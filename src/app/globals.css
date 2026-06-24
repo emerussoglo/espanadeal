@@ -676,6 +676,416 @@ body {
 }
 
 
+.admin-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1c1c1e;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f5f5f7;
+  padding-bottom: 15px;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.admin-badge {
+  background-color: #0071e3;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f5f5f7;
+  border-radius: 12px;
+  color: #86868b;
+}
+
+.admin-empty-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+  color: #aeaeaf;
+}
+
+.admin-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.admin-order-card {
+  background-color: #ffffff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #f5f5f7;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.admin-order-info-group {
+  font-size: 14px;
+}
+
+.admin-label {
+  color: #86868b;
+}
+
+.admin-order-id {
+  color: #0071e3;
+}
+
+.admin-status-pill {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pendiente-de-pago {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-pagado {
+  background-color: #e2f9e2;
+  color: #2e7d32;
+}
+
+.status-cancelado {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.admin-section-subtitle {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #1c1c1e;
+  font-weight: 600;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.admin-table th {
+  border-bottom: 1px solid #e5e5ea;
+  color: #86868b;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.admin-table td {
+  border-bottom: 1px solid #f5f5f7;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.product-name-cell {
+  font-weight: 500;
+}
+
+.product-cat-cell {
+  color: #86868b;
+}
+
+.subtotal-cell {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.admin-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid #e5e5ea;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.admin-status-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-label {
+  font-size: 14px;
+  color: #1c1c1e;
+}
+
+.admin-select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d2d2d7;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+}
+
+.admin-select:focus {
+  border-color: #0071e3;
+}
+
+.admin-actions-summary {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.admin-total-amount {
+  font-size: 15px;
+  color: #86868b;
+}
+
+.total-price-display {
+  color: #1c1c1e;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.admin-delete-btn {
+  background-color: transparent;
+  color: #ff3b30;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  transition: opacity 0.2s;
+}
+
+.admin-delete-btn:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .admin-header, .admin-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .admin-actions-summary {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ======================================================= */
+/* CONTENEDOR FLOTANTE Y CAPA EN PRIMER PLANO (MODAL)       */
+/* ======================================================= */
+
+/* Capa de fondo oscuro que bloquea la pantalla */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Tarjeta central blanca (Modale) */
+.payment-modal-card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1c1c1e;
+  box-sizing: border-box;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Animación de entrada suave */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Encabezado del Modal */
+.payment-modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.payment-header-icon {
+  font-size: 40px;
+  color: #0071e3;
+  margin-bottom: 10px;
+}
+
+.payment-modal-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.payment-modal-header p {
+  font-size: 14px;
+  color: #86868b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Detalles de la cuenta bancaria */
+.payment-modal-details {
+  background-color: #f5f5f7;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.payment-method-title {
+  display: block;
+  color: #0071e3;
+  border-bottom: 1px solid #d2d2d7;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.payment-modal-details p {
+  margin: 6px 0;
+}
+
+/* Línea roja especial para la referencia */
+.payment-reference-row {
+  margin-top: 10px !important;
+  color: #e30000;
+  font-size: 16px;
+}
+
+/* Bloque de advertencia/instrucciones del email */
+.payment-modal-notice {
+  background-color: #fff9db;
+  border: 1px solid #ffe066;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #665200;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.payment-modal-notice i {
+  margin-right: 8px;
+}
+
+/* Botón de confirmación final */
+.btn-modal-confirm {
+  width: 100%;
+  padding: 14px;
+  background-color: #0071e3;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-modal-confirm:hover {
+  background-color: #0077ed;
+}
+
+.btn-modal-confirm:active {
+  transform: scale(0.99);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

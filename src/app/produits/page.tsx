@@ -41,27 +41,32 @@ const PRODUCTS_DATA = [
   // ==========================================
   // DEPORTE / FITNESS (Zapatillas & Gimnasio)
   // ==========================================
-  { id: 20, name: "PUMA Tazon 6 Fracture FM, Zapatillas para Hombre", price: 34.99, category: "Deporte / Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
-  { id: 21, name: "Puma Smash V2 L Zapatillas Unisex", price: 24.99, category: "Deporte / Fitness", image: "/img/PumaSmashV2LBasketsMixte.jpg" },
-  { id: 22, name: "Adidas Unisex Zapatillas VS Pace 2.0", price: 32, category: "Deporte / Fitness", image: "/img/adidasUnisexChaussure.jpg" },
-  { id: 23, name: "Skechers Uno Stand on Air Zapatillas", price: 48, category: "Deporte / Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
-  { id: 24, name: "Skechers Uno-Night Shades, Zapatillas", price: 52.99, category: "Deporte / Fitness", image: "/img/SkechersUno-NightShades.jpg" },
-  { id: 27, name: "Kit de Mancuernas Ajustables (20kg)", price: 42, category: "Deporte / Fitness", image: "/img/Halteres-reglables.jpg" },
-  { id: 42, name: "URLIFE Bicicleta Eléctrica para Adultos, Neumáticos Anchos de 16\"", price: 1299, category: "Deporte / Fitness", image: "/img/URLIFEVeloelectrique.jpg" },
-  { id: 43, name: "ZIPRO Bicicleta Estática para Adulto con Resistencia Magnética de 8 Niveles, Pantalla LCD, Soporte para Teléfono y Sillín Ajustable", price: 109, category: "Deporte / Fitness", image: "/img/ZIPROVelo.jpg" },
+  { id: 20, name: "PUMA Tazon 6 Fracture FM, Zapatillas para Hombre", price: 34.99, category: "Sport/ Fitness", image: "/img/PUMATazon6FractureFM.jpg" },
+  { id: 21, name: "Puma Smash V2 L Zapatillas Unisex", price: 24.99, category: "Sport/ Fitness", image: "/img/PumaSmashV2LBasketsMixte.jpg" },
+  { id: 22, name: "Adidas Unisex Zapatillas VS Pace 2.0", price: 32, category: "Sport/ Fitness", image: "/img/adidasUnisexChaussure.jpg" },
+  { id: 23, name: "Skechers Uno Stand on Air Zapatillas", price: 48, category: "Sport/ Fitness", image: "/img/SkechersUnoStandonAir.jpg" },
+  { id: 24, name: "Skechers Uno-Night Shades, Zapatillas", price: 52.99, category: "Sport/ Fitness", image: "/img/SkechersUno-NightShades.jpg" },
+  { id: 27, name: "Kit de Mancuernas Ajustables (20kg)", price: 42, category: "Sport/ Fitness", image: "/img/Halteres-reglables.jpg" },
+  { id: 42, name: "URLIFE Bicicleta Eléctrica para Adultos, Neumáticos Anchos de 16\"", price: 1299, category: "Sport/ Fitness", image: "/img/URLIFEVeloelectrique.jpg" },
+  { id: 43, name: "ZIPRO Bicicleta Estática para Adulto con Resistencia Magnética de 8 Niveles, Pantalla LCD, Soporte para Teléfono y Sillín Ajustable", price: 109, category: "Sport/ Fitness", image: "/img/ZIPROVelo.jpg" },
+  { id: 49, name: "FabricBike Aero - Bicicleta de Piñón Fijo, Fixie Completa de Una Sola Velocidad, Cuadro de Aluminio", price: 599.99, category: "Sport/ Fitness", image: "/img/FabricBikeAero.jpg" },
+  { id: 50, name: "Dskeuzeew Bicicleta Estática Profesional para Gimnasio con Pantalla LCD y Portavasos, Estructura de Acero de 80 mm, Capacidad de 160 kg (Negro)", price: 240, category: "Sport/ Fitness", image: "/img/DskeuzeewVélo.jpg" },
+  { id: 51, name: "UrbanLuxe Colchoneta de Gimnasia Inflable Air Tumble Track para Volteretas y Acrobacias", price: 90, category: "Sport/ Fitness", image: "/img/TapisdeGymnastique.jpg" },
 
   // ==========================================
   // BELLEZA Y CUIDADO PERSONAL (Skincare & Perfumes)
   // ==========================================
-  { id: 30, name: "MIXA - Sérum Booster de Hidratación Intensa 24H - Rellena e Ilumina", price: 6.99, category: "Belleza y cuidado personal", image: "/img/MIXASérumBooste.jpg" },
-  { id: 31, name: "CeraVe Crema Hidratante para Rostro y Cuerpo, Hidratación 48H, Tecnología MVE + 3 Ceramidas + Ácido Hialurónico", price: 16.25, category: "Belleza y cuidado personal", image: "/img/CeraVeBaume.jpg" },
-  { id: 32, name: "JEANNE ARTHES - Perfume para Hombre Sexy Boy Intense - Eau de Parfum - Frasco Vaporizador de 100 ml", price: 5.12, category: "Belleza y cuidado personal", image: "/img/JEANNEARTHES.jpg" },
+  { id: 30, name: "MIXA - Sérum Booster de Hidratación Intensa 24H - Rellena e Ilumina", price: 6.99, category: "Beauté et soin", image: "/img/MIXASérumBooste.jpg" },
+  { id: 31, name: "CeraVe Crema Hidratante para Rostro y Cuerpo, Hidratación 48H, Tecnología MVE + 3 Ceramidas + Ácido Hialurónico", price: 16.25, category: "Beauté et soin", image: "/img/CeraVeBaume.jpg" },
+  { id: 32, name: "JEANNE ARTHES - Perfume para Hombre Sexy Boy Intense - Eau de Parfum - Frasco Vaporizador de 100 ml", price: 5.12, category: "Beauté et soin", image: "/img/JEANNEARTHES.jpg" },
 
   // ==========================================
   // HOGAR & COCINA
   // ==========================================
-  { id: 36, name: "Ninja Foodi FlexDrawer Freidora de Aire, Dual Zone Con Separador Extraíble", price: 156, category: "Cocina", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
-  { id: 37, name: "ECOVACS T50 Omni GEN2 Robot Aspirador con Estación, Potencia de 21000 Pa, Cepillo lateral y mopa", price: 270, category: "Hogar", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" }
+  { id: 36, name: "Ninja Foodi FlexDrawer Freidora de Aire, Dual Zone Con Separador Extraíble", price: 156, category: "Cuisine", image: "/img/NinjaFoodiFlexDrawerAir.jpg" },
+  { id: 37, name: "ECOVACS T50 Omni GEN2 Robot Aspirador con Estación, Potencia de 21000 Pa, Cepillo lateral y mopa", price: 270, category: "Maison", image: "/img/ECOVACST50OmniGEN2Aspirateur.jpg" },
+  { id: 38, name: "SNDOAS Placa de Gas de 4 Fuegos Cristal Blanco, Placa de Gas Integrable", price: 130, category: "Cuisine", image: "/img/SNDOASPlaque.jpg" },
+  { id: 48, name: "GASLAND GIH604BF Placa Mixta de Gas e Inducción 60 cm, Gas 5200 W con quemador wok, Inducción 3500 W con función Barbacoa, Cristal negro integrable (Sin sartén)", price: 350, category: "Cuisine", image: "/img/GASLANDGIH604BF.jpg" }
 ];
 export default function ProductsPage() {
   const { addToCart } = useCart();
