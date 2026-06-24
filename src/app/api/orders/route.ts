@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { orders, orderItems } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
-
+ 
 // GET : Récupérer toutes les commandes avec leurs articles respectifs
 export async function GET() {
   try {
